@@ -1,0 +1,25 @@
+{
+  "name": "orinoco_app_p5",
+  "version": "1.0.0",
+  "description": "Orinoco - application de vente de caméras vintage",
+  "main": "home.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developineta/orinoco_app_p5.git"
+  },
+  "keywords": [
+    "camera",
+    "vintage"
+  ],
+  "author": "developineta",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/developineta/orinoco_app_p5/issues"
+  },
+  "homepage": "https://github.com/developineta/orinoco_app_p5#readme"
+}

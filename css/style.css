@@ -1,0 +1,63 @@
+/* Couleurs principales */
+body {
+  font-family: "Libre Baskerville", serif;
+  color: #000000;
+}
+body h2 {
+  font-size: 1.5rem;
+}
+body p,
+body li {
+  font-size: 1.1rem;
+}
+body a {
+  color: #000000;
+  text-decoration: none;
+}
+body a:hover {
+  color: #262626;
+}
+
+body {
+  background-image: linear-gradient(to left, #e8a247, #9a61e1);
+}
+
+.navbar-brand {
+  box-shadow: 2px 2px 2px #666666;
+}
+
+.conteneur-navigations .icones-nav_list {
+  flex-direction: row;
+}
+.conteneur-navigations .icones-nav_list i:hover {
+  color: #262626;
+  border-bottom: 2px solid #262626;
+}
+.conteneur-navigations i {
+  font-size: 1.5rem;
+}
+@media all and (max-width: 423px) {
+  .conteneur-navigations .toggle-nav {
+    text-align: left !important;
+  }
+}
+
+.card a:hover {
+  text-decoration: none;
+  box-shadow: 2px 2px 2px #666666;
+}
+
+.jumbotron {
+  background-color: #f3eaf1;
+}
+.jumbotron .article-container {
+  justify-content: center;
+}
+.jumbotron h2 {
+  margin-top: 10px;
+}
+.jumbotron p {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

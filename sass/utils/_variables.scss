@@ -1,0 +1,9 @@
+$colour-primary: #9a61e1; /* Couleurs principales */
+$colour-secondary: #e8a247;
+$colour-background: #f3eaf1;
+$colour-black: #000000;
+$colour-white: #ffffff;
+
+$background-image: linear-gradient(to left, $colour-secondary, $colour-primary);
+
+$box-shadow: 2px 2px 2px lighten($colour-black, 40%);

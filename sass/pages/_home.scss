@@ -1,0 +1,12 @@
+.jumbotron {
+	background-color: $colour-background;
+	.article-container {
+		justify-content: center;
+	}
+	h2 {
+		margin-top: 10px;
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
