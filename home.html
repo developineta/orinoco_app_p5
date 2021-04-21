@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+        <meta charset="utf-8">
+        <meta name=viewport content="width=device-width, initial-scale=1"> <!-- Ajout de Viewport pour adapter la taille du site à la taille d'écran -->
+		<title>Orinoco - Caméras photo vintage</title>
+        <!-- Ajout de lien pour utilisation de Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" type = "text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Orelega+One&display=swap" rel="stylesheet"> <!-- Ajout de la police Google -->
+	</head>
+    <body>
+        <header>
+            <nav class="col navbar navbar-expand-lg">
+                <img src="orinoco-logo.png" class="navbar-brand p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
+                <div class="conteneur-navigations navbars">
+                    <!-- Les paddings et marges définies avec Bootstrap -->
+                    <nav class="navbar icones-nav p-0">
+                        <!-- Le position de navigation sur la côté droite -->
+                        <ul class="navbar-nav icones-nav_list col text-right p-0">
+                            <!-- Le mot 'active' indique l'élément de la navigation actuellement sélectionné -->
+                            <li class="nav-item active m-3 m-lg-4">
+                                <a href="panier.html" class="nav-item_cart">
+                                    <img src="node_modules/bootstrap-icons/icons/cart-fill.svg" alt="Menu" width="25" height="25" title="Voir le panier" />
+                                </a>
+                            </li>
+                            <li class="nav-item active m-3 m-lg-4">
+                                <a href="#" class="nav-item_heart">
+                                    <img src="node_modules/bootstrap-icons/icons/heart-fill.svg" alt="Menu" width="25" height="25" title="Voir les favoris" />
+                                </a>
+                            </li>
+                            <li class="nav-item active m-3 m-lg-4">
+                                <a href="#" class="nav-item_account">
+                                    <img src="node_modules/bootstrap-icons/icons/person-circle.svg" alt="Menu" width="25" height="25" title="Mon compte" />
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="toggle-nav text-right">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false">
+                            <span class="navbar-toggler-icon">
+                                <img src="node_modules/bootstrap-icons/icons/list.svg" alt="Menu" width="32" height="32" title="Ouvrir le menu" />
+                            </span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse" aria-expanded="true">
+                            <ul class="navbar-nav nav-marques">
+                                <!-- Clicquant sur chaque choix la page de produit correspondant s'ouvre -->
+                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
+                                    <a href="#" title="Caméras Zurss">
+                                        <span>Zurss</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
+                                    <a href="#" title="Caméras Hirsch">
+                                        <span>Hirsch</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
+                                    <a href="#" title="Caméras Franck">
+                                        <span>Franck</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
+                                    <a href="#" title="Caméras Kuros">
+                                        <span>Kuros</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
+                                    <a href="#" title="Caméras Katatone">
+                                        <span>Katatone</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+        </main>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="controllers/camera.js"></script>
+        <script src="home.js"></script>
+    </body>
+</html>
