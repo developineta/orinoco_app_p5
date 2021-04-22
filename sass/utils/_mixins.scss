@@ -1,0 +1,8 @@
+@mixin btn-shadows {
+	box-shadow: 2px 4px 10px darken($colour-background, 25%),
+		6px 40px 30px -30px $colour-secondary inset;
+}
+@mixin btn-shadows-hover {
+	box-shadow: 4px 4px 10px darken($colour-background, 50%),
+		15px 40px 40px -27px $colour-secondary inset; /* Appliquation des ombres - externe et interne */
+}

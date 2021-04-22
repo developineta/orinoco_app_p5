@@ -2,11 +2,20 @@
 	background-color: $colour-background;
 	.article-container {
 		justify-content: center;
+		.card:hover,
+		.card:focus {
+			box-shadow: $box-shadow;
+		}
 	}
 	h2 {
 		margin-top: 10px;
 	}
 	p {
 		margin-bottom: 0;
+	}
+	h1 {
+		@media all and (max-width: 576px) {
+			font-size: 2.2rem;
+		}
 	}
 }

@@ -1,20 +1,37 @@
-.navbar-brand {
-	box-shadow: $box-shadow;
-}
-.conteneur-navigations {
-	.icones-nav_list {
-		flex-direction: row;
-		i:hover {
-			color: lighten($colour-black, 15%);
-			border-bottom: 2px solid lighten($colour-black, 15%);
+.navabar-header {
+	@media all and (min-width: 991px) {
+		justify-content: space-between;
+	}
+	.navbar-brand {
+		box-shadow: $box-shadow;
+	}
+	.conteneur-navigations {
+		.icones-nav_list {
+			flex-direction: row;
+			i:hover,
+			i:focus {
+				color: lighten($colour-black, 15%);
+				border-bottom: 2px solid lighten($colour-black, 15%);
+			}
 		}
-	}
-	i {
-		font-size: 1.5rem;
-	}
-	.toggle-nav {
-		@media all and (max-width: 423px) {
-			text-align: left !important;
+		.dropdown {
+			@media all and (max-width: 407px) {
+				text-align: left !important;
+			}
+			.dropdown-toggle {
+				background-color: $colour-background;
+				color: $colour-black;
+				border: none;
+				box-shadow: $box-shadow;
+				&:hover,
+				&:focus {
+					box-shadow: $box-shadow-hover;
+				}
+			}
+			.dropdown-item:hover {
+				background-color: unset;
+				text-decoration: underline;
+			}
 		}
 	}
 }

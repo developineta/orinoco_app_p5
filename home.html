@@ -12,7 +12,7 @@
 	</head>
     <body>
         <header>
-            <nav class="col navbar navbar-expand-lg">
+            <nav class="col navbar navabar-header navbar-expand-lg">
                 <img src="orinoco-logo.png" class="navbar-brand p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
                 <div class="conteneur-navigations navbars">
                     <!-- Les paddings et marges définies avec Bootstrap -->
@@ -43,41 +43,19 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class="toggle-nav text-right">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false">
+                    <!-- Le menu déroulant de Bootstrap -->
+                    <div class="dropdown text-right">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="navbar-toggler-icon" title="Ouvrir le menu">
                                 <i class="fas fa-bars"></i>
                             </span>
                         </button>
-                        <div id="navbarContent" class="collapse navbar-collapse" aria-expanded="true">
-                            <ul class="navbar-nav nav-marques">
-                                <!-- Clicquant sur chaque choix la page de produit correspondant s'ouvre -->
-                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
-                                    <a href="#" title="Caméras Zurss">
-                                        <span>Zurss</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
-                                    <a href="#" title="Caméras Hirsch">
-                                        <span>Hirsch</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
-                                    <a href="#" title="Caméras Franck">
-                                        <span>Franck</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
-                                    <a href="#" title="Caméras Kuros">
-                                        <span>Kuros</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item m-1 m-lg-4 font-weight-bold">
-                                    <a href="#" title="Caméras Katatone">
-                                        <span>Katatone</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="dropdown-menu nav-marques" aria-labelledby="dropdownMenu">
+                            <a href="#" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Zurss">Zurss</a>
+                            <a href="#" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Hirsch">Hirsch</a>
+                            <a href="#" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Franck">Franck</a>
+                            <a href="#" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Kuros">Kuros</a>
+                            <a href="#" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Katatone">Katatone</a>
                         </div>
                     </div>
                 </div>
@@ -88,13 +66,13 @@
             <div class="container jumbotron">
                 <h1 class="text-center">Caméras Vintage</h1>
                 <!-- Le grille Bootstrap de lignes et de colonnes pour présenter les articles -->
-                <div class="article-grid">
+                <div class="article-grid mt-4">
                     <!-- Les marges définies avec Bootstrap -->
                     <div class="article-container row m-auto">
                         <!-- Les cartes Bootstrap -->
                         <div class="card m-2 m-lg-4">
                             <!-- Les cartes sont cliquables dans son integralité -->
-                            <a href="#" class="card-body stretched-link">
+                            <a href="article.html" class="card-body stretched-link" title="Voir article">
                                 <picture>
                                     <!-- Classe Bootstrap qui adapte l'image à sa carte -->
                                     <img src="{{ imageUrl }}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
@@ -107,7 +85,7 @@
                             </a>
                         </div>
                         <div class="card m-2 m-lg-4">
-                            <a href="#" class="card-body stretched-link">
+                            <a href="article.html" class="card-body stretched-link" title="Voir article">
                                 <picture>
                                     <img src="{{ imageUrl }}" class="card-img-top" id="img_Hirsch" alt="Caméra Hirsch" title="Caméra vintage Hirsch 400DTS" />
                                 </picture>
@@ -120,7 +98,7 @@
                     </div>
                     <div class="article-container row m-auto">
                         <div class="card m-2 m-lg-4">
-                            <a href="#" class="card-body stretched-link">
+                            <a href="article.html" class="card-body stretched-link" title="Voir article">
                                 <picture>
                                     <img src="{{ imageUrl }}" class="card-img-top" id="img_Franck" alt="Caméra Franck" title="Caméra vintage Franck JS 105" />
                                 </picture>
@@ -131,7 +109,7 @@
                             </a>
                         </div>
                         <div class="card m-2 m-lg-4">
-                            <a href="#" class="card-body stretched-link">
+                            <a href="article.html" class="card-body stretched-link" title="Voir article">
                                 <picture>
                                     <img src="{{ imageUrl }}" class="card-img-top" id="img_Kuros" alt="Caméra Kuros" title="Caméra vintage Kuros TTS" />
                                 </picture>
@@ -144,7 +122,7 @@
                     </div>
                     <div class="article-container row m-auto">
                         <div class="card m-2 m-lg-4">
-                            <a href="#" class="card-body stretched-link">
+                            <a href="article.html" class="card-body stretched-link" title="Voir article">
                                 <picture>
                                     <img src="{{ imageUrl }}" class="card-img-top" id="img_katanone" alt="Caméra Katatone" title="Caméra vintage Katatone" />
                                 </picture>

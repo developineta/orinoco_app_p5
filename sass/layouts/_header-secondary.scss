@@ -1,0 +1,10 @@
+.header-secondary {
+	justify-content: space-between;
+	i:hover {
+		text-shadow: 1px 1px 1px lighten($colour-black, 30%);
+	}
+	.small-logo {
+		flex-grow: 0;
+		box-shadow: $box-shadow;
+	}
+}

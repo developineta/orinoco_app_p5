@@ -1,4 +1,8 @@
-.card a:hover {
+.reccomandation-card:hover {
 	text-decoration: none;
 	box-shadow: $box-shadow;
+}
+.reccomandation-container {
+	display: flex;
+	justify-content: center;
 }

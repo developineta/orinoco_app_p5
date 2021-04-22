@@ -1,0 +1,61 @@
+.input-group-text {
+	background-color: unset;
+	border: unset;
+}
+.options-lenses {
+	flex-wrap: nowrap;
+	.lenses-choise {
+		min-width: 130px !important;
+		max-width: 200px;
+		width: 100%;
+		&:focus {
+			background-color: lighten($colour-black, 95%);
+		}
+	}
+}
+.options-quantity {
+	flex-wrap: nowrap;
+	.quantity-choise {
+		width: 52px;
+		flex-grow: unset !important;
+		flex-shrink: unset !important;
+		flex-basis: unset !important;
+		&:focus {
+			background-color: lighten($colour-black, 95%);
+		}
+	}
+}
+.btn-block {
+	background-color: $colour-primary;
+	border-color: $colour-primary;
+	color: $colour-black;
+	@include btn-shadows;
+	h2 {
+		margin: 0;
+	}
+	&:hover,
+	&:focus {
+		background-color: $colour-primary;
+		border-color: $colour-primary;
+		@include btn-shadows-hover;
+		text-decoration: underline;
+		color: $colour-black;
+	}
+}
+.btn-outline-primary {
+	border-color: $colour-primary;
+	box-shadow: 2px 4px 10px darken($colour-background, 25%);
+	i {
+		color: $colour-primary;
+		padding-top: 5px;
+	}
+	&:hover,
+	&:focus {
+		background-color: $colour-white;
+		border-color: darken($colour-primary, 5%);
+		box-shadow: 4px 4px 10px darken($colour-background, 50%);
+		i {
+			color: darken($colour-primary, 5%);
+		}
+	}
+}
