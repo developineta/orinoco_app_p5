@@ -1,0 +1,22 @@
+.confirmation-message {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $colour-background;
+	border-radius: 15px;
+	@media all and (max-width: 575px) {
+		border-radius: unset;
+	}
+	h2 {
+		@media all and (max-width: 480px) {
+			font-size: 1.3rem;
+		}
+	}
+	p {
+		margin-top: 15px;
+		@media all and (max-width: 480px) {
+			font-size: 1rem;
+		}
+	}
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Couleurs principales */
 body {
   font-family: "Libre Baskerville", serif;
@@ -26,6 +27,96 @@ body i {
 
 body {
   background-image: linear-gradient(to left, #e8a247, #9a61e1);
+}
+
+/* La séléction de lenses et de quantité */
+.input-group-text {
+  background-color: unset;
+  border: unset;
+}
+
+.options-lenses {
+  flex-wrap: nowrap;
+}
+.options-lenses .lenses-choise {
+  min-width: 130px !important;
+  max-width: 200px;
+  width: 100%;
+}
+.options-lenses .lenses-choise:focus {
+  background-color: #f2f2f2;
+}
+.options-lenses .lenses-choise:hover {
+  box-shadow: 2px 2px 2px #666666;
+}
+
+.options-quantity {
+  flex-wrap: nowrap;
+}
+.options-quantity .quantity-choise {
+  width: 56px;
+  flex-grow: unset !important;
+  flex-shrink: unset !important;
+  flex-basis: unset !important;
+}
+.options-quantity .quantity-choise:focus {
+  background-color: #f2f2f2;
+}
+.options-quantity .quantity-choise:hover {
+  box-shadow: 2px 2px 2px #666666;
+}
+
+/* Les boutons */
+.btn-block {
+  background-color: #9a61e1;
+  border-color: #9a61e1;
+  color: #000000;
+  box-shadow: 2px 4px 10px #c599bb, 6px 40px 30px -30px #e8a247 inset;
+}
+.btn-block h2 {
+  margin: 0;
+}
+.btn-block:hover, .btn-block:focus {
+  background-color: #9a61e1;
+  border-color: #9a61e1;
+  box-shadow: 4px 4px 10px #8d5180, 15px 40px 40px -27px #e8a247 inset;
+  /* Appliquation des ombres - externe et interne */
+  text-decoration: underline;
+  color: #000000;
+}
+
+.btn-outline-primary {
+  border-color: #9a61e1;
+  box-shadow: 2px 4px 10px #c599bb;
+}
+.btn-outline-primary i {
+  color: #9a61e1;
+  padding-top: 5px;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background-color: #ffffff;
+  border-color: #8c4cdd;
+  box-shadow: 4px 4px 10px #8d5180;
+}
+.btn-outline-primary:hover i, .btn-outline-primary:focus i {
+  color: #8c4cdd;
+}
+
+/* Le bouton de suppresion des articles du panier */
+.bin {
+  border: 1px solid #f3eaf1;
+  color: #000000;
+}
+.bin i {
+  font-size: 1.2rem;
+}
+.bin:hover, .bin:focus {
+  border: 1px solid #cccccc;
+  background-color: unset;
+  box-shadow: 2px 2px 2px #666666;
+}
+.bin:hover i, .bin:focus i {
+  color: #9a61e1;
 }
 
 @media all and (min-width: 991px) {
@@ -106,69 +197,78 @@ body {
   }
 }
 
-.input-group-text {
-  background-color: unset;
-  border: unset;
+.form-control:hover, .form-control:focus {
+  background-color: #e6e6e6;
+  box-shadow: 2px 2px 2px #666666;
 }
 
-.options-lenses {
+.validation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.validation .total-price {
+  align-items: flex-end;
+}
+.validation .total-price p {
+  font-size: 0.8rem;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.payment-methods ul {
   flex-wrap: nowrap;
+  background-color: #f3eaf1;
+  border-radius: 10px;
 }
-.options-lenses .lenses-choise {
-  min-width: 130px !important;
-  max-width: 200px;
-  width: 100%;
+.payment-methods ul li {
+  padding: 10px 0 8px 0;
 }
-.options-lenses .lenses-choise:focus {
-  background-color: #f2f2f2;
+.payment-methods ul li i {
+  font-size: 2.2rem;
 }
-
-.options-quantity {
-  flex-wrap: nowrap;
+.payment-methods ul li .fa-cc-paypal {
+  color: #3b7bbf;
 }
-.options-quantity .quantity-choise {
-  width: 52px;
-  flex-grow: unset !important;
-  flex-shrink: unset !important;
-  flex-basis: unset !important;
+.payment-methods ul li .fa-cc-visa {
+  color: #172274;
 }
-.options-quantity .quantity-choise:focus {
-  background-color: #f2f2f2;
+.payment-methods ul li .fa-cc-mastercard {
+  color: #ff5f00;
 }
-
-.btn-block {
-  background-color: #9a61e1;
-  border-color: #9a61e1;
-  color: #000000;
-  box-shadow: 2px 4px 10px #c599bb, 6px 40px 30px -30px #e8a247 inset;
-}
-.btn-block h2 {
-  margin: 0;
-}
-.btn-block:hover, .btn-block:focus {
-  background-color: #9a61e1;
-  border-color: #9a61e1;
-  box-shadow: 4px 4px 10px #8d5180, 15px 40px 40px -27px #e8a247 inset;
-  /* Appliquation des ombres - externe et interne */
-  text-decoration: underline;
-  color: #000000;
+.payment-methods ul li .fa-cc-amex {
+  color: #2e77bb;
 }
 
-.btn-outline-primary {
-  border-color: #9a61e1;
-  box-shadow: 2px 4px 10px #c599bb;
+.confirmation-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3eaf1;
+  border-radius: 15px;
 }
-.btn-outline-primary i {
-  color: #9a61e1;
-  padding-top: 5px;
+@media all and (max-width: 575px) {
+  .confirmation-message {
+    border-radius: unset;
+  }
 }
-.btn-outline-primary:hover, .btn-outline-primary:focus {
-  background-color: #ffffff;
-  border-color: #8c4cdd;
-  box-shadow: 4px 4px 10px #8d5180;
+@media all and (max-width: 480px) {
+  .confirmation-message h2 {
+    font-size: 1.3rem;
+  }
 }
-.btn-outline-primary:hover i, .btn-outline-primary:focus i {
-  color: #8c4cdd;
+.confirmation-message p {
+  margin-top: 15px;
+}
+@media all and (max-width: 480px) {
+  .confirmation-message p {
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

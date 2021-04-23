@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 	<head>
         <meta charset="utf-8">
@@ -61,81 +60,57 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <!-- La mise en page de contenu principal de la page d'accueil avec composant Bootstrap Jumbotron-->
-            <div class="container jumbotron">
-                <h1 class="text-center">Caméras Vintage</h1>
-                <!-- Le grille Bootstrap de lignes et de colonnes pour présenter les articles -->
-                <div class="article-grid mt-4">
-                    <!-- Les marges définies avec Bootstrap -->
-                    <div class="article-container row m-auto">
-                        <!-- Les cartes Bootstrap -->
-                        <div class="card m-2 m-lg-4">
-                            <!-- Les cartes sont cliquables dans son integralité -->
-                            <a href="article.html" class="card-body stretched-link" title="Voir article">
-                                <picture>
-                                    <!-- Classe Bootstrap qui adapte l'image à sa carte -->
-                                    <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
-                                </picture>
-                                <h2 class="card-title">{{ name }}</h2>
-                                <p>à partir de
-                                    <!-- Le format de texte gras de Bootstrap -->
-                                    <span class="font-weight-bold">{{ price }} €</span>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="card m-2 m-lg-4">
-                            <a href="article.html" class="card-body stretched-link" title="Voir article">
-                                <picture>
-                                    <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Hirsch" alt="Caméra Hirsch" title="Caméra vintage Hirsch 400DTS" />
-                                </picture>
-                                <h2 class="card-title">{{ name }}</h2>
-                                <p>à partir de
-                                    <span class="font-weight-bold">{{ price }} €</span>
-                                </p>
-                            </a>
-                        </div>
+        <section class="confirmation-message container p-5">
+            <h2 class="font-weight-bold">Merci, {{ firstName }} pour voter achat !</h2>
+            <p class="font-weight-bold">Voici la confirmation de votre commande :</p>
+            <p class="font-italic">{{ Camera.list }} : {{ Camera.name }} {{ x Camera.quantity }} à prix total de {{ Camera.price }} €</p>
+            <p class="font-weight-bold">Votre No de commande est : {{ XXXXXXX }}</p>
+            <p>Nous avons envoyé un e-mail de confirmation à votre adresse : {{ email }}</p>
+            <p class="font-weight-bold">À bientôt chez Orinoco !</p>
+        </section>
+        <aside class="mt-5">
+            <div class="col">
+                <h3 class=" font-weight-bold text-center mx-0">Recommandations :</h3>
+                <div class="reccomandation-container row m-auto">
+                    <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                        <a href="article.html" class="card-body stretched-link" title="Voir article">
+                            <picture>
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
+                            </picture>
+                        </a>
                     </div>
-                    <div class="article-container row m-auto">
-                        <div class="card m-2 m-lg-4">
-                            <a href="article.html" class="card-body stretched-link" title="Voir article">
-                                <picture>
-                                    <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Franck" alt="Caméra Franck" title="Caméra vintage Franck JS 105" />
-                                </picture>
-                                <h2 class="card-title">{{ name }}</h2>
-                                <p>à partir de
-                                    <span class="font-weight-bold">{{ price }} €</span>
-                                </p>
-                            </a>
-                        </div>
-                        <div class="card m-2 m-lg-4">
-                            <a href="article.html" class="card-body stretched-link" title="Voir article">
-                                <picture>
-                                    <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Kuros" alt="Caméra Kuros" title="Caméra vintage Kuros TTS" />
-                                </picture>
-                                <h2 class="card-title">{{ name }}</h2>
-                                <p>à partir de
-                                    <span class="font-weight-bold">{{ price }} €</span>
-                                </p>
-                            </a>
-                        </div>
+                    <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                        <a href="article.html" class="card-body stretched-link" title="Voir article">
+                            <picture>
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Hirsch" alt="Caméra Hirsch" title="Caméra vintage Hirsch 400DTS" />
+                            </picture>
+                        </a>
                     </div>
-                    <div class="article-container row m-auto">
-                        <div class="card m-2 m-lg-4">
-                            <a href="article.html" class="card-body stretched-link" title="Voir article">
-                                <picture>
-                                    <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_katanone" alt="Caméra Katatone" title="Caméra vintage Katatone" />
-                                </picture>
-                                <h2 class="card-title">{{ name }}</h2>
-                                <p>à partir de
-                                    <span class="font-weight-bold">{{ price }} €</span>
-                                </p>
-                            </a>
-                        </div>
+                    <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                        <a href="article.html" class="card-body stretched-link" title="Voir article">
+                            <picture>
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Franck" alt="Caméra Franck" title="Caméra vintage Franck JS 105" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                        <a href="article.html" class="card-body stretched-link" title="Voir article">
+                            <picture>
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Kuros" alt="Caméra Kuros" title="Caméra vintage Kuros TTS" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                        <a href="article.html" class="card-body stretched-link" title="Voir article">
+                            <picture>
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_katanone" alt="Caméra Katatone" title="Caméra vintage Katatone" />
+                            </picture>
+                        </a>
                     </div>
                 </div>
             </div>
-        </main>
+        </aside>
+
         <!-- jQuery en premier, après Popper.js et Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

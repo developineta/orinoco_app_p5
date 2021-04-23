@@ -11,22 +11,21 @@
         <script src="https://kit.fontawesome.com/d034506d63.js" crossorigin="anonymous"></script> <!-- Ajout de lien vers la bibliothèque Font Awesome -->
 	</head>
     <body>
-        <header>
+        <header class="my-2">
             <nav class="row navbar navbar-expand header-secondary">
-                    <a href="home.html" class=" col-2 text-center nav-item_arrow">
-                        <span title="Rétour à l'accueil">
-                            <i class="fas fa-arrow-left"></i>
-                        </span>
-                    </a>
-                    <h2 class="col-6 font-weight-bold">caméra {{ name }}</h2>
-                    <img src="orinoco-logo_small.png" class="col navbar-brand small-logo p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
-                </div>
+                <a href="home.html" class=" col-2 text-center nav-item_arrow">
+                    <span title="Rétour à l'accueil">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                </a>
+                <h2 class="col-6 font-weight-bold">caméra {{ Camera.name }}</h2>
+                <img src="orinoco-logo_small.png" class="col navbar-brand small-logo p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
             </nav>
         </header>
         <section class="container">
             <div class="card m-2 m-lg-4">
                 <div class="card-body">
-                    <picture>
+                    <picture class="border-bottom">
                         <!-- Classe Bootstrap qui adapte l'image à sa carte -->
                         <img src="{{ imageUrl }}" class="card-img-top" id="img_article" alt="Caméra vintage" title="Caméra vintage Orinoco" />
                     </picture>
@@ -35,21 +34,21 @@
                             <!-- Le choix  de lentille avec options Bootstrap -->
                             <div class="input-group options-lenses mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect">Lentille :</label>
+                                    <label class="input-group-text" for="select-lense">Lentille :</label>
                                 </div>
-                                <select class="custom-select lenses-choise" id="inputGroupSelect">
-                                    <option selected>{{ lenses.value }}</option>
-                                    <option value="1">{{ lenses.value }}</option>
-                                    <option value="2">{{ lenses.value }}</option>
+                                <select class="custom-select lenses-choise" id="select-lense">
+                                    <option selected>{{ Camera.selectLense }}</option>
+                                    <option value="1">{{ Camera.selectLense }}</option>
+                                    <option value="2">{{ Camera.selectLense }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <div class="input-group options-quantity mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect">Quantité :</label>
+                                    <label class="input-group-text" for="select-quantity">Quantité :</label>
                                 </div>
-                                <select class="custom-select quantity-choise" id="inputGroupSelect">
+                                <select class="custom-select quantity-choise" id="select-quantity">
                                     <option selected>1</option>
                                     <option value="1">2</option>
                                     <option value="2">3</option>
@@ -58,14 +57,15 @@
                         </div>
                     </div>
                     <div class="row choise-container pl-3">
-                        <h2 class="card-title font-weight-bold">{{ name }} - </h2>
-                        <h3 id="title-choice">{{ lenses.value }}</h3>
+                        <h2 class="card-title font-weight-bold">{{ Camera.name }} - </h2>
+                        <h3 id="title-choice">{{ Camera.selectLense }}</h3>
                     </div>
-                    <h2 class="article-price font-weight-bold">{{ price }} €</h2>
+                    <!-- Le prix de caméra multiplié par quantité choisie -->
+                    <h2 class="article-price font-weight-bold">{{ Camera.price * Camera.quantity }} €</h2>
                     <!-- Bouton primaire et large de Bootstrap -->
                     <div class="row button-container pl-3 mt-5">
                         <button type="button" class="col-9 col-lg-6 col-xl-4 btn btn-primary btn-lg btn-block" title="Ajouter au panier">
-                            <h2 class="font-weight-bold">Ajouter au panier</h2>
+                            <span class="font-weight-bold">Ajouter au panier</span>
                         </button>
                         <div class="col-3 heart-button text-center">
                             <button type="button" class="btn btn-outline-primary" title="Ajouter aux favoris">
@@ -79,7 +79,7 @@
             </div>
             <div class="col article-description">
                 <h3 class="row font-weight-bold mx-0">Description</h3>
-                <p class="row mx-0">{{ description }}</p>
+                <p class="row mx-0">{{ Camera.description }}</p>
             </div>
         </section>
         <aside class="mt-5">
@@ -89,35 +89,35 @@
                     <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
                         <a href="article.html" class="card-body stretched-link" title="Voir article">
                             <picture>
-                                <img src="{{ imageUrl }}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
                             </picture>
                         </a>
                     </div>
                     <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
                         <a href="article.html" class="card-body stretched-link" title="Voir article">
                             <picture>
-                                <img src="{{ imageUrl }}" class="card-img-top" id="img_Hirsch" alt="Caméra Hirsch" title="Caméra vintage Hirsch 400DTS" />
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Hirsch" alt="Caméra Hirsch" title="Caméra vintage Hirsch 400DTS" />
                             </picture>
                         </a>
                     </div>
                     <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
                         <a href="article.html" class="card-body stretched-link" title="Voir article">
                             <picture>
-                                <img src="{{ imageUrl }}" class="card-img-top" id="img_Franck" alt="Caméra Franck" title="Caméra vintage Franck JS 105" />
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Franck" alt="Caméra Franck" title="Caméra vintage Franck JS 105" />
                             </picture>
                         </a>
                     </div>
                     <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
                         <a href="article.html" class="card-body stretched-link" title="Voir article">
                             <picture>
-                                <img src="{{ imageUrl }}" class="card-img-top" id="img_Kuros" alt="Caméra Kuros" title="Caméra vintage Kuros TTS" />
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_Kuros" alt="Caméra Kuros" title="Caméra vintage Kuros TTS" />
                             </picture>
                         </a>
                     </div>
                     <div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
                         <a href="article.html" class="card-body stretched-link" title="Voir article">
                             <picture>
-                                <img src="{{ imageUrl }}" class="card-img-top" id="img_katanone" alt="Caméra Katatone" title="Caméra vintage Katatone" />
+                                <img src="{{ camera.imageUrl }}" class="card-img-top" id="img_katanone" alt="Caméra Katatone" title="Caméra vintage Katatone" />
                             </picture>
                         </a>
                     </div>

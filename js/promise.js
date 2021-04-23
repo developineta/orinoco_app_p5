@@ -8,7 +8,6 @@ const promiseGetCameras = new Promise(function(resolve, reject) {
         reject('Impossible de trouver le résultat');
     }
 });
-
 //Récuperer l'état de la promesse
 promiseGetCameras
 .then( a => {
