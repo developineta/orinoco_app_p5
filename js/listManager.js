@@ -1,4 +1,4 @@
-//Représentation du format d'un article
+// Représentation du format d'un article
 
 class Camera{
     constructor(jsonCamera){

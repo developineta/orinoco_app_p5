@@ -1,3 +1,6 @@
+
+// A faire function getOneCamera(_id)
+
 let jsondata = fetch("http://localhost:3000/api/cameras")
 	.then( data => data.json())
 	.then( jsonCameras => {
@@ -47,7 +50,7 @@ let jsondata = fetch("http://localhost:3000/api/cameras")
                                                                                 <span class="font-weight-bold">Ajouter au panier</span>
                                                                             </button>
                                                                             <div class="col-3 heart-button text-center">
-                                                                                <button type="button" class="btn btn-outline-primary" title="Ajouter aux favoris">
+                                                                                <button type="button" onClick="location.href='panier.html'" class="btn btn-outline-primary" title="Ajouter aux favoris">
                                                                                     <span>
                                                                                         <i class="fas fa-heart"></i>
                                                                                     </span>
