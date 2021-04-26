@@ -2,9 +2,12 @@
 	background-color: $colour-background;
 	.article-container {
 		justify-content: center;
-		.card:hover,
-		.card:focus {
-			box-shadow: $box-shadow;
+		.card {
+			max-width: 320px;
+			&:hover,
+			&:focus {
+				box-shadow: $box-shadow;
+			}
 		}
 	}
 	h2 {

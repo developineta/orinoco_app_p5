@@ -181,8 +181,7 @@ body {
 .jumbotron .article-container {
   justify-content: center;
 }
-.jumbotron .article-container .card:hover,
-.jumbotron .article-container .card:focus {
+.jumbotron .article-container .card:hover, .jumbotron .article-container .card:focus {
   box-shadow: 2px 2px 2px #666666;
 }
 .jumbotron h2 {
@@ -197,50 +196,54 @@ body {
   }
 }
 
-.form-control:hover, .form-control:focus {
+.formulaire input:invalid {
+  border: 2px solid #ff0000;
+}
+.formulaire input:valid {
+  border: 1px solid #00e600;
+}
+.formulaire .form-control:hover, .formulaire .form-control:focus {
   background-color: #e6e6e6;
   box-shadow: 2px 2px 2px #666666;
 }
-
-.validation {
+.formulaire .validation {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.validation .total-price {
+.formulaire .validation .total-price {
   align-items: flex-end;
 }
-.validation .total-price p {
+.formulaire .validation .total-price p {
   font-size: 0.8rem;
 }
-
-.payment-methods {
+.formulaire .payment-methods {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.payment-methods ul {
+.formulaire .payment-methods ul {
   flex-wrap: nowrap;
   background-color: #f3eaf1;
   border-radius: 10px;
 }
-.payment-methods ul li {
+.formulaire .payment-methods ul li {
   padding: 10px 0 8px 0;
 }
-.payment-methods ul li i {
+.formulaire .payment-methods ul li i {
   font-size: 2.2rem;
 }
-.payment-methods ul li .fa-cc-paypal {
+.formulaire .payment-methods ul li .fa-cc-paypal {
   color: #3b7bbf;
 }
-.payment-methods ul li .fa-cc-visa {
+.formulaire .payment-methods ul li .fa-cc-visa {
   color: #172274;
 }
-.payment-methods ul li .fa-cc-mastercard {
+.formulaire .payment-methods ul li .fa-cc-mastercard {
   color: #ff5f00;
 }
-.payment-methods ul li .fa-cc-amex {
+.formulaire .payment-methods ul li .fa-cc-amex {
   color: #2e77bb;
 }
 
