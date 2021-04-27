@@ -2,8 +2,9 @@
 	background-color: $colour-background;
 	.article-container {
 		justify-content: center;
-		.card {
-			max-width: 320px;
+		.carte-accueil {
+			max-width: 450px;
+			width: 100%;
 			&:hover,
 			&:focus {
 				box-shadow: $box-shadow;

@@ -5,9 +5,7 @@ let jsondata = fetch("http://localhost:3000/api/cameras")
 	.then( jsonCameras => {
 		for(let jsonCamera of jsonCameras){
 			let camera = new Camera(jsonCamera);
-			document.querySelector(".container").innerHTML += `<div class="article-grid mt-4">
-																	<div class="article-container row m-auto">
-																		<div class="card carte-accueil m-2 m-lg-4">
+			document.querySelector(".article-container").innerHTML += `<div class="card carte-accueil m-2 m-lg-4">
 																			<a href="article.html?id=${camera._id}" class="card-body stretched-link" title="Voir article">
 																				<picture>
 																					<img src="${camera.imageUrl}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
@@ -17,8 +15,6 @@ let jsondata = fetch("http://localhost:3000/api/cameras")
 																					<span class="font-weight-bold">${(camera.price/100).toFixed(2).replace(".",",")} €</span>
 																				</p>
 																			</a>
-																		</div>
-																	</div>
-																</div>`;
+																		</div>`;
 		}
 	});
