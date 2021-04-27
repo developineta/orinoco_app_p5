@@ -31,3 +31,18 @@ function cameraId() {
     let selectedCamera = cameraId();
     /* la suite de ton programme */
   }
+
+  // pour utiliser fetch en fonction index.js .... ne marche pas correctement
+  // Aside
+  function getCameras() {
+    return fetch("http://localhost:3000/api/cameras")
+        .then(data => data.json())
+  }
+
+getCameras()
+.then(cameras => {
+  console.log("Promise getCameras: ", cameras);
+  displayCameraHTML(cameras);
+});
+
+function displayCameraHTML(camera) {
