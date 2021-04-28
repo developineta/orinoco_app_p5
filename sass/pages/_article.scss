@@ -1,1 +1,16 @@
-
+.article-container {
+	flex-direction: row;
+	justify-content: center;
+	max-width: 800px;
+	width: 100%;
+	.options-lenses,
+	.options-quantity {
+		justify-content: center;
+	}
+	.choise-container {
+		justify-content: space-around;
+	}
+	.button-container {
+		justify-content: center;
+	}
+}

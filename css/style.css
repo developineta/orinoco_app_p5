@@ -160,6 +160,9 @@ body {
 .header-secondary i:hover {
   text-shadow: 1px 1px 1px #4d4d4d;
 }
+.header-secondary .titre-camera {
+  font-size: 2rem;
+}
 .header-secondary .small-logo {
   flex-grow: 0;
   box-shadow: 2px 2px 2px #666666;
@@ -276,6 +279,23 @@ body {
   .confirmation-message p {
     font-size: 1rem;
   }
+}
+
+.article-container {
+  flex-direction: row;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+}
+.article-container .options-lenses,
+.article-container .options-quantity {
+  justify-content: center;
+}
+.article-container .choise-container {
+  justify-content: space-around;
+}
+.article-container .button-container {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

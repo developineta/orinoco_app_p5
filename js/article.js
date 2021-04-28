@@ -7,27 +7,20 @@ function getCurrentCameraIdFromURL() {
   return cameraId;
 }
 
-// La fonction qui vient d'être déclaré est répresenté en cameraId
+// La fonction qui vient d'être déclaré est répresenté dans son résultat - cameraId
 const cameraId = getCurrentCameraIdFromURL();
 console.log("cameraId from URL: ", cameraId);
 
-// Affichage des donnés d'un article - fetch
+// Affichage des donnés d'un article avec la promesse et fetch
 function getCameraById(cameraId) {
-  return fetch("http://localhost:3000/api/cameras/" + cameraId) // Promise JSON
+  return fetch("http://localhost:3000/api/cameras/" + cameraId) // Promesse json
       .then(data => data.json()); // Les data d'une caméra
 }
 
-// Promesse d'afficher l'article qui correspond à l'id récuperé
-getCameraById(cameraId)
-    .then(camera => {
-        console.log("Promise getCameraById: ", camera);
-        displayCameraHTML(camera);
-    });
-
-// Création d'HTML avec les donnés de la caméra correspondante
+// Fonction de création d'HTML avec les donnés de la caméra correspondante
 function displayCameraHTML(camera) {
-  document.querySelector(".titre-article").innerHTML += `<h2 class="font-weight-bold">caméra ${camera.name}</h2>`
-  document.querySelector(".article-container").innerHTML += `<div class="card m-2 m-lg-4">
+  document.querySelector(".titre-article").innerHTML += `<h2 class="font-weight-bold text-center titre-camera">Caméra ${camera.name}</h2>`
+  document.querySelector(".article-container").innerHTML += `<div class="card carte-camera">
                                                               <div class="card-body">
                                                                   <picture class="border-bottom">
                                                                       <img src="${camera.imageUrl}" class="card-img-top" id="img_article" alt="Caméra vintage" title="Caméra vintage Orinoco" />
@@ -59,18 +52,17 @@ function displayCameraHTML(camera) {
                                                                           </div>
                                                                       </div>
                                                                   </div>
-                                                                  <div class="row choise-container pl-3">
+                                                                  <div class="row choise-container pl-3 mt-3">
                                                                       <h2 class="card-title font-weight-bold">${camera.name}</h2>
+                                                                      <h2 class="font-weight-bold">${(camera.price/100).toFixed(2).replace(".",",")} €</h2>
                                                                   </div>
-                                                                  <!-- Le prix de caméra multiplié par quantité choisie -->
-                                                                  <h2 class="article-price font-weight-bold">${(camera.price/100).toFixed(2).replace(".",",")} €</h2>
                                                                   <!-- Bouton primaire et large de Bootstrap -->
-                                                                  <div class="row button-container pl-3 mt-5">
-                                                                      <button type="button" class="col-9 col-lg-6 col-xl-4 btn btn-primary btn-lg btn-block" title="Ajouter au panier">
+                                                                  <div class="row button-container pl-3 mt-4">
+                                                                      <button type="button" class="addToCart col-9 col-lg-6 col-xl-4 btn btn-primary btn-lg btn-block" title="Ajouter au panier">
                                                                           <span class="font-weight-bold">Ajouter au panier</span>
                                                                       </button>
                                                                       <div class="col-3 heart-button text-center">
-                                                                          <button type="button" onClick="location.href='panier.html'" class="btn btn-outline-primary" title="Ajouter aux favoris">
+                                                                          <button type="button" class="btn btn-outline-primary" title="Ajouter aux favoris">
                                                                               <span>
                                                                                   <i class="fas fa-heart"></i>
                                                                               </span>
@@ -79,13 +71,22 @@ function displayCameraHTML(camera) {
                                                                   </div>
                                                               </div>
                                                               </div>
-                                                              <div class="col article-description">
+                                                              <div class="col article-description mt-3">
                                                                   <h3 class="row font-weight-bold mx-0">Description</h3>
                                                                   <p class="row mx-0">${camera.description}</p>
                                                               </div>
                                                               <div class="col">`
   };
-// Aside
+
+// Promesse d'afficher l'article qui correspond à l'id récuperé - deux fonctions (getCameraById et displayCameraHTML) et le résultat de récupération de l'id (cameraId) utilisés
+getCameraById(cameraId)
+    .then(camera => {
+        console.log("Promise getCameraById: ", camera);
+        displayCameraHTML(camera);
+    });
+
+
+// Aside - le même fetch avec la promesse que sur la page index
 let jsondata = fetch("http://localhost:3000/api/cameras")
   .then( data => data.json())
   .then( jsonCameras => {
