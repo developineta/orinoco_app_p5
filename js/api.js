@@ -8,6 +8,6 @@ function getCameras() {
 
 // Utilisé pour la page article
 function getCameraById(cameraId) {
-    return fetch("http://localhost:3000/api/cameras/" + cameraId) // => Promise(JSON)
+    return fetch("http://localhost:3000/api/cameras/" + cameraId)
         .then(data => data.json()); // => Promise({ id, price, ... })
 }
