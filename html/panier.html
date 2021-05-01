@@ -23,45 +23,14 @@
             </nav>
         </header>
         <section class="container cart-container">
-            <div class="article-count mt-3">
-                <h2 class="font-weight-bold nb-articles"> {camera.quantity.summ } articles</h2>
-            </div>
+            <div class="article-count mt-3"></div>
             <div class="liste-cartes">
-                <div class="card cart-article">
-                    <div class="row card-body">
-                        <picture class="col border-right">
-                            <img src="{{ camera.imageUrl }}" class="card-img-left" id="img_article" alt="Caméra vintage" title="Caméra vintage Orinoco" />
-                        </picture>
-                        <div class="col option-container">
-                            <div class="col">
-                                <!-- Le nom et choix de lentille -->
-                                <div class="row choise-container pl-3">
-                                    <h2 class="card-title font-weight-bold">{{ name }} - </h2>
-                                    <h3 id="title-choice">{{ lenses.value }}</h3>
-                                </div>
-                                <!-- Le prix de caméra multiplié par quantité choisie -->
-                                <h2 class="article-price font-weight-bold mt-2">{{ Camera.price * Camera.quantity }} €</h2>
-                                <div class="input-group options-quantity my-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="select-quantity">Quantité :</label>
-                                    </div>
-                                    <div class="row quantite-delete">
-                                        <select class="custom-select quantity-choise" id="select-quantity">
-                                            <option selected>1</option>
-                                            <option value="1">2</option>
-                                            <option value="2">3</option>
-                                        </select>
-                                        <button type="button" class="btn bin btn-outline-secondary mx-1">
-                                            <span>
-                                                <i class="far fa-trash-alt"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="card cart-article"></div>
+                <button type="button" class="boutonSupprimer btn bin btn-outline-secondary mx-1">
+                    <span>
+                        <i class="far fa-trash-alt"></i>
+                    </span>
+                </button>
             </div>
         </section>
         <section class="container contact-validation mt-5">
@@ -139,6 +108,7 @@
         <!-- Les chemins vers les fichiers JavaScript -->
         <script src="../js/listManager.js"></script>
         <script src="../JWDP5/models/Camera.js"></script>
+        <script src="../js/ajoutPanier.js"></script>
         <script src="../js/panier.js"></script>
         <script src="../JWDP5/app.js"></script>
     </body>

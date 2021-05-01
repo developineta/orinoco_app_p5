@@ -22,7 +22,7 @@ function displayCameraHTML(camera) {
   document.querySelector(".titre-article").innerHTML += `<h2 class="font-weight-bold text-center titre-camera">Caméra ${camera.name}</h2>`;
   document.querySelector(".carte-camera").innerHTML += `<div class="card-body">
                                                             <picture class="border-bottom">
-                                                                <img src="${camera.imageUrl}" class="card-img-top" id="img_article" alt="Caméra vintage" title="Caméra vintage Orinoco" />
+                                                                <img src="${camera.imageUrl}" class="card-img-top article-image" id="img_article" alt="Caméra vintage" title="Caméra vintage Orinoco" />
                                                             </picture>
                                                             <div class="row option-container mt-3">
                                                                 <div class="col">
@@ -53,12 +53,71 @@ function displayCameraHTML(camera) {
                                                             </div>
                                                             <div class="row choise-container pl-3 mt-3">
                                                                 <h2 class="card-title font-weight-bold">${camera.name}</h2>
-                                                                <h2 class="font-weight-bold">${(camera.price/100).toFixed(2).replace(".",",")} €</h2>
+                                                                <h2 class="font-weight-bold" id="camera-prix">${(camera.price/100).toFixed(2).replace(".",",")} €</h2>
                                                             </div>
                                                         </div>`;
     document.querySelector(".article-description").innerHTML += `<h3 class="row font-weight-bold mx-0">Description</h3>
                                                                 <p class="row mx-0">${camera.description}</p>`;
+    let cameraOptions = {
+        cameraName: camera.name,
+        cameraPrice: (camera.price/100).toFixed(2).replace(".",","),
+        cameraImage: camera.imageUrl,
     };
+    console.log("Voir Camera Options ", cameraOptions);
+    return cameraOptions;
+    }
+
+    // Bouton de l'ajout au panier
+    const addToCartButton = document.getElementsByClassName("addToCart");
+    console.log("Add to cart button ", addToCartButton);
+    for(let i=0; i<addToCartButton.length; i++){ 
+        addToCartButton[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            console.log("Montre bouton à chaque click ", e.target);
+
+            // Déclaration de variable où mettre les clés et valeurs qui sont dans local storage
+            let articlesInLocalStorage = JSON.parse(localStorage.getItem("article")); // Pour convertir les données au format JSON
+            
+            // N'importe quoi
+            const cameraOptions = {
+                cameraImage: "imageUrl",
+                cameraName: "name",
+                cameraPrice: "price",
+            };
+            console.log(Object.entries(cameraOptions));
+
+            localStorage.setItem("article", cameraOptions);
+            localStorage.clear();
+
+            // S'il y a déjà les articles dans local storage
+            if(articlesInLocalStorage){
+                articlesInLocalStorage.push(cameraOptions);
+                localStorage.setItem("article", JSON.stringify(articlesInLocalStorage)); // Pour convertir les données du format JSON au JS
+                console.log("Réponse if ", articlesInLocalStorage);
+            }
+            // S'il n'y a pas des articles dans local storage
+            else{
+                articlesInLocalStorage = [];
+                articlesInLocalStorage.push(cameraOptions);
+                localStorage.setItem("article", JSON.stringify(articlesInLocalStorage));
+                console.log("Réponse else ", articlesInLocalStorage);
+            }
+        });
+        /*articlesInLocalStorage.push(cameraOptions);
+        localStorage.setItem("article", JSON.stringify(articlesInLocalStorage));
+        window.location.reload(); 
+        
+        const deleteButton = document.getElementsByClassName("boutonSupprimer"); // ne peut pas l'atteindr car son html est dans fichier ajoutPanier.js 
+        console.log("Bouton supprimer ", deleteButton);
+        
+        deleteButton.addEventListener("click", function(e) {
+            e.preventDefault();
+            console.log("Montre delete à chaque click ", e.target);
+        } */
+    }
+
+localStorage.setItem("mon", "test");
+localStorage.clear();
 
 // Promesse d'afficher l'article qui correspond à l'id récuperé - deux fonctions (getCameraById et displayCameraHTML) et le résultat de récupération de l'id (cameraId) utilisés
 getCameraById(cameraId)
@@ -67,19 +126,18 @@ getCameraById(cameraId)
         displayCameraHTML(camera);
     });
 
-
 // Aside - le même fetch avec la promesse que sur la page index
 let jsondata = fetch("http://localhost:3000/api/cameras")
-  .then( data => data.json())
-  .then( jsonCameras => {
-    for(let jsonCamera of jsonCameras){
-        let camera = new Camera(jsonCamera);
-        document.querySelector(".reccomandation-container").innerHTML += `<div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
-                                                                            <a href="article.html?id=${camera._id}" class="card-body stretched-link" title="Voir article">
-                                                                                <picture>
-                                                                                    <img src="${camera.imageUrl}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
-                                                                                </picture>
-                                                                            </a>
-                                                                          </div>`
-    }
-  });
+    .then( data => data.json())
+    .then( jsonCameras => {
+        for(let jsonCamera of jsonCameras){
+            let camera = new Camera(jsonCamera);
+            document.querySelector(".reccomandation-container").innerHTML += `<div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
+                                                                                    <a href="article.html?id=${camera._id}" class="card-body stretched-link" title="Voir article">
+                                                                                        <picture>
+                                                                                            <img src="${camera.imageUrl}" class="card-img-top" id="img_zurss" alt="Caméra Zurss" title="Caméra vintage Zurss 50S" />
+                                                                                        </picture>
+                                                                                    </a>
+                                                                                </div>`
+        }
+    });
