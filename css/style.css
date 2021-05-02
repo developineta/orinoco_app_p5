@@ -166,6 +166,10 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
 }
+.header-secondary .titre-nav .titre-article {
+  display: flex;
+  align-items: center;
+}
 .header-secondary .titre-nav h2 {
   flex-wrap: nowrap;
   width: 100%;

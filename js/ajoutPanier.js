@@ -1,6 +1,6 @@
 // Ajout des donnés à local storage
 
-//Affichage des donnés d'un article avec la promesse et fetch
+//Affichage des donnés d'un article
 
 function resetHTML() {
     document.querySelector(".article-count").innerHTML = "";
@@ -133,6 +133,7 @@ function setEventsListeners() {
         // Le bouton de suppression
         const removeArticleButtons = document.getElementsByClassName("btn-remove-article");
         console.log("remove articles buttons ", removeArticleButtons);
+        // Boucle pour parcourir les boutons de chaque article
         for(let i=0; i<removeArticleButtons.length; i++){ 
             removeArticleButtons[i].addEventListener("click", function(e) {
                 e.preventDefault();
@@ -140,9 +141,11 @@ function setEventsListeners() {
                 
                 // Recupère No Id de caméra
                 const cameraId = e.target.dataset.idArticle;
-                removeCameraInCart(cameraId); 
-                localStorage.removeItem(cameraId);
-                console.log("removed article ", removeCameraInCart);
+                removeCameraFromCart (cameraId);
+                    
+                //window.localStorage.removeItem(cameraId);
+                
+                //console.log("removed article ", removeCameraFromCart);
                     /*removeArticleButtons.addEventListener("click", function(g) {
                         g.preventDefault();
                         storage.removeItem(cameraId);
@@ -152,7 +155,8 @@ function setEventsListeners() {
         }
     }
 };
-      
+
+
 const cart = JSON.parse(localStorage.getItem("cart"));
 if (cart != null) {
     console.log("cart", cart);
@@ -165,6 +169,7 @@ if (cart == null) {
     displayEmptyCartMessage();
 }
 
-
+/*countCartArticles(cart);
+console.log(cart.length);*/
 
 
