@@ -160,12 +160,32 @@ body {
 .header-secondary i:hover {
   text-shadow: 1px 1px 1px #4d4d4d;
 }
+.header-secondary .titre-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.header-secondary .titre-nav h2 {
+  flex-wrap: nowrap;
+  width: 100%;
+}
+@media all and (max-width: 750px) {
+  .header-secondary .titre-nav h2 {
+    font-size: 1.7rem;
+  }
+}
 .header-secondary .titre-camera {
   font-size: 2rem;
 }
 .header-secondary .small-logo {
   flex-grow: 0;
   box-shadow: 2px 2px 2px #666666;
+}
+@media all and (max-width: 750px) {
+  .header-secondary .small-logo {
+    visibility: hidden;
+  }
 }
 
 .reccomandation-card:hover {

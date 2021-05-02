@@ -18,7 +18,38 @@
                         <i class="fas fa-arrow-left"></i>
                     </span>
                 </a>
-                <h2 class="col-6 font-weight-bold">Panier</h2>
+                <div class="titre-nav col-8">
+                    <div class=" titre-article">
+                        <h2 class="col-6 font-weight-bold">Panier</h2>
+                    </div>
+                    <div class="navabar-container">
+                        <nav class="navbar icones-nav p-0">
+                            <ul class="navbar-nav icones-nav_list col text-right p-0">
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <a href="panier.html" class="nav-item_cart">
+                                        <span title="Voir le panier">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <a href="#" class="nav-item_heart">
+                                        <span title="Voir les favoris">
+                                            <i class="fas fa-heart"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <a href="#" class="nav-item_account">
+                                        <span title="Mon compte">
+                                            <i class="fas fa-user-circle"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
                 <img src="../images/orinoco-logo_small.png" class="col navbar-brand small-logo p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
             </nav>
         </header>
@@ -30,72 +61,7 @@
                 </div>
             </section>
             <section class="container contact-validation mt-5">
-                <div class="formulaire col m-auto">
-                    <h3 class="col-11 font-weight-bold mb-4">Merci de remplir le formulaire pour passer la commande</h3>
-                    <!-- Le formulaire de contact avec options de Bootsrap -->
-                    <div class="formulaire-valide"> 
-                        <form class="contact-form" novalidate>
-                            <div class="form-row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">Prénom</label>
-                                    <!-- Peut contenir que les lettres majuscules et minuscules; minimum 2 et maximim 20 carachtères -->
-                                    <input type="text" class="form-control" id="firstName" placeholder="Prénom" value="Arthur" maxlength="20" pattern="[A-Za-zÀ-ÿ ]{2,20}" required>
-                                    <span class="error" aria-live="polite"></span>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Nom</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Nom" value="Legrand" maxlength="20" pattern="[A-Za-zÀ-ÿ ]{2,20}" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="address">Adresse</label>
-                                    <!-- Peut contenir que les lettres majuscules, minuscules, chiffres, tiret et virgule; minimum 5 et maximim 80 carachtères -->
-                                    <input type="text" class="form-control" id="address" placeholder="Voie, résidence, appartement, complément..." maxlength="80" value="Rue Paoli, 2 appartement 11" pattern="[A-Za-zÀ-ÿ0-9 -,]{5,80}" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="city">Ville</label>
-                                    <!-- Peut contenir que les lettres majuscules, minuscules et tiret; minimum 3 et maximim 40 carachtères -->
-                                    <input type="text" class="form-control" id="city" placeholder="Ville" value="Bastia" maxlength="40" pattern="[A-Za-zÀ-ÿ-]{3,40}" required>
-                                    <div class="invalid-feedback">Reinseignez la ville.</div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">E-mail</label>
-                                    <!-- Le pattern d'e-mail qui doit être une combinaison comme suit dans la balise -->
-                                    <input type="email" class="form-control" id="email" placeholder="E-mail" value="adresse@mail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+[.][a-z]{2,4}" required>
-                                </div>
-                            </div>
-                            <div class="validation col mt-3">
-                                <div class="row total-price m-auto py-4">
-                                    <h2 class="text-uppercase my-0 mr-3">Total</h2>
-                                    <p class="text-uppercase my-0 mr-3">tva incluse</p>
-                                    <h2 class="article-price font-weight-bold my-0">{{ Camera.price * Camera.quantity }} €</h2>
-                                </div>
-                                <button type="submit" onClick="location.href='confirmation.html'" class="col-9 col-lg-6 col-xl-4 btn btn-primary btn-lg btn-block m-auto" title="Commander">
-                                    <span class="font-weight-bold py-2">Commander</span>
-                                </button>
-                                <div class="col payment-methods mt-5 mb-2">
-                                    <ul class="row list-unstyled">
-                                        <li class="mx-3">
-                                            <i class="fab fa-cc-paypal"></i>
-                                        </li>
-                                        <li class="mx-3">
-                                            <i class="fab fa-cc-visa"></i>
-                                        </li>
-                                        <li class="mx-3">
-                                            <i class="fab fa-cc-mastercard"></i>
-                                        </li>
-                                        <li class="mx-3">
-                                            <i class="fab fa-cc-amex"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </section>
         </div>
         <!-- jQuery en premier, après Popper.js et Bootstrap JS -->

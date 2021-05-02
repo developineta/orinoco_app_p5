@@ -3,11 +3,28 @@
 	i:hover {
 		text-shadow: 1px 1px 1px lighten($colour-black, 30%);
 	}
+	.titre-nav {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		flex-wrap: wrap;
+		h2 {
+			flex-wrap: nowrap;
+			width: 100%;
+			@media all and (max-width: 750px) {
+				font-size: 1.7rem;
+			}
+		}
+	}
 	.titre-camera {
 		font-size: 2rem;
 	}
 	.small-logo {
 		flex-grow: 0;
 		box-shadow: $box-shadow;
+		@media all and (max-width: 750px) {
+			visibility: hidden;
+		}
 	}
+	
 }
