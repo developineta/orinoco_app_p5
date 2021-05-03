@@ -21,7 +21,6 @@ function displayCartHTML(cart) {
                                                                             <div class="row choise-container pl-3">
                                                                                 <h2 class="card-title font-weight-bold">${camera.cameraName} - </h2>
                                                                             </div>
-                                                                            <!-- Le prix de caméra multiplié par quantité choisie -->
                                                                             <h2 class="article-price font-weight-bold mt-2">${camera.cameraPrice} €</h2>
                                                                             <div class="input-group options-quantity my-3">
                                                                                 <div class="input-group-prepend">
@@ -126,7 +125,7 @@ function countCartArticles() {
 function displayEmptyCartMessage() {
     document.querySelector(".contenu-page").innerHTML += `<h2 class="message-panier-vide text-center">Votre panier est vide !</h2>`
 };
-    
+
 function setEventsListeners() {
    
     window.onload = function(){ // Fonctions exécutés dés le chargement de la page
@@ -156,20 +155,27 @@ function setEventsListeners() {
     }
 };
 
-
 const cart = JSON.parse(localStorage.getItem("cart"));
 if (cart != null) {
     console.log("cart", cart);
     displayCartHTML(cart);
     setEventsListeners();
     countCartArticles();
-};
+    totalPrice(cart);
+}
 if (cart == null) {
     console.log("cart est vide !");
     displayEmptyCartMessage();
-}
-
-/*countCartArticles(cart);
-console.log(cart.length);*/
-
-
+};
+function totalPrice(cart) {
+    for(let camera of cart) {
+        console.log("Show each price ", camera.cameraPrice); // Affiche prix de chaque caméra dans le panier
+        let oneCameraPrice = camera.cameraPrice;
+        console.log("Variable ", oneCameraPrice); 
+    }
+    /*console.log(cart.length);
+    let calcul = function(e) {
+        for(let i = 0; i < cart.length; i++); 
+        calcul(oneCameraPrice);
+    }*/
+};
