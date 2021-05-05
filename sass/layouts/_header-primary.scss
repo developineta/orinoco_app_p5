@@ -1,9 +1,17 @@
+.header-primary {
+	background-color: rgba(255, 255, 255, 0.1);
+}
 .navabar-header {
 	@media all and (min-width: 991px) {
 		justify-content: space-between;
 	}
 	.navbar-brand {
 		box-shadow: $box-shadow;
+	}
+	.brand-confirm {
+		&:hover {
+			box-shadow: $box-shadow-hover;
+		}
 	}
 	.conteneur-navigations {
 		.icones-nav_list {

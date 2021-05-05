@@ -1,6 +1,49 @@
+.article-count {
+	background-color: rgba(255, 255, 255, 0.1);
+}
 #img_panier {
-	max-width: 200px;
+	max-width: 220px;
 	width: 100%;
+	box-shadow: $box-shadow;
+	@media all and (max-width: 494px) {
+		max-width: 140px;
+	}
+}
+.card-body-cart {
+	@media all and (max-width: 494px) {
+		height: 150px;
+		position: relative;
+	}
+	.option-container {
+		.text-card {
+			@media all and (min-width: 768px) {
+				padding-left: 60px;
+			}
+			@media all and (max-width: 768px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			@media all and (max-width: 494px) {
+				h2 {
+					font-size: 1.2rem;
+					text-align: center;
+				}
+			}
+			.options-quantity {
+				@media all and (max-width: 494px) {
+					display: flex;
+					justify-content: center;
+					position: absolute;
+					top: 82px;
+    				right: 121px;
+					.quantite-delete {
+						flex-wrap: nowrap;
+					}
+				}
+			}
+		}
+	}
 }
 .formulaire {
 	input:invalid {
@@ -20,8 +63,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: space-around;
 		.total-price {
 			align-items: flex-end;
+			justify-content: center;
+			background-color: rgba(255, 255, 255, 0.1);
+			border-radius: 20px;
 			p {
 				font-size: 0.8rem;
 			}

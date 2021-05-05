@@ -1,5 +1,4 @@
 //L'affichage des données des articles
-
 let jsondata = fetch("http://localhost:3000/api/cameras")
 	.then( data => data.json())
 	.then( jsonCameras => {

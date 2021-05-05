@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 	<head>
         <meta charset="utf-8">
@@ -11,9 +12,11 @@
 	</head>
     <body>
         <header class="my-2">
-            <nav class="col navbar navabar-header navbar-expand-lg">
-                <img src="../images/orinoco-logo.png" class="navbar-brand p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
-                <div class="conteneur-navigations navbars">
+            <nav class="col navbar navabar-header header-primary navbar-expand-lg">
+                <a href="index.html" class="index-page" title="Rétour à l'accueil">
+                    <img src="../images/orinoco-logo.png" class="navbar-brand brand-confirm p-0" alt="Orinoco logo - Caméras vintage" />
+                </a>
+                    <div class="conteneur-navigations navbars">
                     <!-- Les paddings et marges définies avec Bootstrap -->
                     <nav class="navbar icones-nav p-0">
                         <!-- Le position de navigation sur la côté droite -->
@@ -60,8 +63,7 @@
                 </div>
             </nav>
         </header>
-        <section class="confirmation-message container p-5">
-        </section>
+        <section class="confirmation-message container p-5"></section>
         <aside class="mt-5">
             <div class="col">
                 <h3 class=" font-weight-bold text-center mx-0">Recommandations :</h3>
@@ -74,7 +76,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!-- Les chemins vers les fichiers JavaScript -->
-        <script src="../js/listManager.js"></script>
+        <script src="../js/api.js"></script>
         <script src="../JWDP5/models/Camera.js"></script>
         <script src="../js/confirmation.js"></script>
         <script src="../JWDP5/app.js"></script>
