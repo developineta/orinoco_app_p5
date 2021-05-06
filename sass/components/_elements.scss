@@ -53,9 +53,14 @@
 .btn-outline-primary {
 	border-color: $colour-primary;
 	box-shadow: 2px 4px 10px darken($colour-background, 25%);
-	i {
+	padding: 6px;
+	.fa-shopping-cart {
 		color: $colour-primary;
 		padding-top: 5px;
+	}
+	.fa-eye {
+		font-size: 1rem;
+		color: lighten($colour-black, 40%);
 	}
 	&:hover,
 	&:focus {

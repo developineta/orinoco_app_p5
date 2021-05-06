@@ -92,10 +92,15 @@ body {
 .btn-outline-primary {
   border-color: #9a61e1;
   box-shadow: 2px 4px 10px #c599bb;
+  padding: 6px;
 }
-.btn-outline-primary i {
+.btn-outline-primary .fa-shopping-cart {
   color: #9a61e1;
   padding-top: 5px;
+}
+.btn-outline-primary .fa-eye {
+  font-size: 1rem;
+  color: #666666;
 }
 .btn-outline-primary:hover, .btn-outline-primary:focus {
   background-color: #ffffff;

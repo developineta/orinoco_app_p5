@@ -44,7 +44,7 @@ function displayCartHTML(cart) {
 // Affichage du formulaire s'il y a des articles dans le panier
 function displayFormHTML() {
     document.querySelector(".contact-validation").innerHTML += `<div class="formulaire col m-auto">
-                                                                    <h3 class="col-11 font-weight-bold mb-4">Merci de remplir le formulaire pour passer la commande</h3>
+                                                                    <h3 class="col-11 font-weight-bold mb-4 pl-0">Merci de remplir le formulaire pour passer la commande</h3>
                                                                     <!-- Le formulaire de contact avec options de Bootsrap -->
                                                                     <div class="formulaire-valide"> 
                                                                         <form class="contact-form" id="formulaire" novalidate>
@@ -123,7 +123,10 @@ function countCartArticles() {
 
 // Affiche le message de panier vide
 function displayEmptyCartMessage() {
-    document.querySelector(".contenu-page").innerHTML += `<h2 class="message-panier-vide text-center">Votre panier est vide !</h2>`
+    resetHTML();
+    document.querySelector(".contenu-page").innerHTML += `<h2 class="message-panier-vide font-weight-bold text-center m-5">Votre panier est vide !</h2>
+                                                            <h3 class=" font-weight-bold text-center mx-0">Recommandations :</h3>`,
+    displayRecommendations();
 };
 
 /*function setEventsListeners() {
@@ -146,6 +149,7 @@ function displayEmptyCartMessage() {
     }
 };*/
 
+// Recuperation des données de Local Storage
 const cart = JSON.parse(localStorage.getItem("cart"));
 if (cart != null) {
     console.log("cart", cart);
@@ -153,7 +157,7 @@ if (cart != null) {
     countCartArticles();
     //setEventsListeners();
 }
-if (cart == null) {
+else if (cart == null) {
     console.log("cart est vide !");
     displayEmptyCartMessage();
 };
@@ -336,7 +340,7 @@ function CartProductId() {
 const products = CartProductId();
 
 // Pour ranger les données du client dans un objet comme demande l'API
-class clientData {
+class ClientData {
     constructor(firstNameData, lastNameData, addressData, cityData, emailData) {
         this.firstName = firstNameData;
         this.lastName = lastNameData;
@@ -357,7 +361,7 @@ function getFormData() {
     let address = document.getElementById('address').value;
     let city = document.getElementById('city').value;
     let email = document.getElementById('email').value;
-    contact = new clientData(firstName, lastName, address, city, email);
+    contact = new ClientData(firstName, lastName, address, city, email);
 };
 
 // Pour récuperer la réponse du serveur avec Id de la commande
@@ -365,7 +369,9 @@ function getClientOrderId(jsonResponse) {
     let clientOrderId = jsonResponse.orderId;
     console.log(clientOrderId);
     localStorage.setItem("orderConfirmationId", clientOrderId); // Id de la commande savgardé dans Local Storage
-}
+};
+
+// Requête POST
 async function postAPI(dataToPost) {
     const options = {
         method: "POST",
