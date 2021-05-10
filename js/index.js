@@ -15,5 +15,6 @@ let jsondata = fetch("http://localhost:3000/api/cameras")
 																				</p>
 																			</a>
 																		</div>`;
+			document.querySelector(".nav-marques").innerHTML += `<a href="article.html?id=${camera._id}" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Zurss">${camera.name}</a>`;
 		}
 	});

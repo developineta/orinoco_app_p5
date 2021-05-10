@@ -46,10 +46,13 @@
 	}
 }
 .formulaire {
-	input:invalid {
+	input:required {
+		border: 1px solid lighten($colour-black, 40%);
+	}
+	input:required:invalid:focus {
 		border: 2px solid $colour-red;
 	}
-	input:valid {
+	input:valid:focus {
 		border: 1px solid $colour-green;
 	}
 	.form-control {

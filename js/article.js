@@ -5,17 +5,14 @@ function getCurrentCameraIdFromURL() {
   const cameraId = urlParams.get('id');
   return cameraId;
 };
-
 // La fonction qui vient d'être déclaré est répresenté dans son résultat - cameraId
 const cameraId = getCurrentCameraIdFromURL();
-console.log("cameraId from URL: ", cameraId);
-
-// Affichage des donnés d'un article avec la promesse et fetch
+// Affichage des donnés d'un article avec fetch et la promesse
 function getCameraById(cameraId) {
   return fetch("http://localhost:3000/api/cameras/" + cameraId)
       .then(data => data.json());
 };
-// Recupere les données de caméra
+// Récupre les données de caméra
 function getCameraOptions(camera) {
     const cameraOptions = {
         cameraName: camera.name,
@@ -23,26 +20,18 @@ function getCameraOptions(camera) {
         cameraImage: camera.imageUrl,
         cameraId: camera._id,
     };
-    console.log("Voir Camera Options ", cameraOptions);
     return cameraOptions;
 };
-
-// Recupere les options de lentille et affiche les choix
+// Récupére les options de lentille et affiche les choix
 function getLenses(camera) {
     let lenseList = camera.lenses;
-    console.log("Lenses disponibles :", lenseList);
     for (let i = 0; i < lenseList.length; i++) {
-        let lenseOption = lenseList[i];
-        console.log("Each lens :", lenseOption); // Montre chaque lentille
         let optionsLenses = document.createElement("option");
-        let lenseChoice = document.getElementById("select-lense"); // Recupère le menu de choix
-        console.log(lenseChoice);
-        lenseChoice.appendChild(optionsLenses); // Création d'éléments enfants pour les choix de lenses
-        console.log(optionsLenses);
-        optionsLenses.textContent = lenseList[i]; // Affichage de chaque option dans les choix
+        let lenseChoice = document.getElementById("select-lense");
+        lenseChoice.appendChild(optionsLenses);
+        optionsLenses.textContent = lenseList[i];
     }
 };
-
 // Fonction de création d'HTML avec les donnés de la caméra correspondante
 function displayCameraHTML(camera) {
     document.querySelector(".titre-article").innerHTML = `<h2 class="font-weight-bold text-center titre-camera pl-2">Caméra ${camera.name}</h2>`;
@@ -78,51 +67,36 @@ function displayCameraHTML(camera) {
                                                                 <h2 class="font-weight-bold" id="camera-prix">${(camera.price/100).toFixed(2).replace(".",",")} €</h2>
                                                             </div>
                                                         </div>`;
-        document.querySelector(".article-description").innerHTML = `<h3 class="row font-weight-bold mx-0">Description</h3>
+    document.querySelector(".article-description").innerHTML = `<h3 class="row font-weight-bold mx-0">Description</h3>
                                                                 <p class="row mx-0">${camera.description}</p>`;
 };
+// Function de bouton d'ajout de l'article au panier
 function setEventsListeners(camera) {
-    console.log("camera in event listener ", camera);
-    // Bouton de l'ajout au panier
     const addToCartButton = document.getElementById("addToCart");
-    console.log("Add to cart button ", addToCartButton);
-    // HTML Element(button add to cart)
     addToCartButton.addEventListener("click", function onAddToCartClick(e) {
         e.preventDefault();
-        console.log("Montre bouton à chaque click ", e.target);
-    
-        // Déclaration de variable où mettre les clés et valeurs qui sont dans local storage
-        let articlesInLocalStorage = JSON.parse(localStorage.getItem("cart")); // Pour convertir les données au format JSON
-        
+        let articlesInLocalStorage = JSON.parse(localStorage.getItem("cart"));
         const cameraOptions = getCameraOptions(camera);
-        console.log(cameraOptions);
-    
         localStorage.setItem("cart", cameraOptions);
-    
-        // S'il y a déjà les articles dans local storage
+        // S'il y a déjà les articles dans Local Storage
         if(articlesInLocalStorage){
             articlesInLocalStorage.push(cameraOptions);
-            localStorage.setItem("cart", JSON.stringify(articlesInLocalStorage)); // Pour convertir les données du format JSON au JS
-            console.log("Réponse if ", articlesInLocalStorage);
+            localStorage.setItem("cart", JSON.stringify(articlesInLocalStorage));
         }
         // S'il n'y a pas des articles dans local storage
         else{
             articlesInLocalStorage = [];
             articlesInLocalStorage.push(cameraOptions);
             localStorage.setItem("cart", JSON.stringify(articlesInLocalStorage));
-            console.log("Réponse else ", articlesInLocalStorage);
         }
-    });
+    })
 };
-    
-// Promesse d'afficher l'article qui correspond à l'id récuperé
+// Appel de la fonction et promesse de rétourner les données de l'article qui correspond à l'id
 getCameraById(cameraId)
     .then(camera => {
-        console.log("Promise getCameraById: ", camera);
         displayCameraHTML(camera);
-        setEventsListeners(camera);
         getLenses(camera);
+        setEventsListeners(camera);
     });
-
 // Aside 
 displayRecommendations();

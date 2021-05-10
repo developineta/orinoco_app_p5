@@ -298,10 +298,13 @@ body {
   }
 }
 
-.formulaire input:invalid {
+.formulaire input:required {
+  border: 1px solid #666666;
+}
+.formulaire input:required:invalid:focus {
   border: 2px solid #ff0000;
 }
-.formulaire input:valid {
+.formulaire input:valid:focus {
   border: 1px solid #00e600;
 }
 .formulaire .form-control:hover, .formulaire .form-control:focus {

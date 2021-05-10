@@ -4,7 +4,6 @@ class Camera{
         jsonCamera && Object.assign(this, jsonCamera);
     }
 };
-
 // Aside
 function displayRecommendations() {
     return fetch("http://localhost:3000/api/cameras")
