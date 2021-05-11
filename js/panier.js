@@ -1,5 +1,12 @@
+function resetCartHTML() {
+    document.querySelector(".cart-article").innerHTML = "";
+};
+function resetCountHTML() {
+    document.querySelector(".article-count").innerHTML = "";
+};
 // Affichage de chaque article dans le panier
 function displayCartHTML(cart) {
+        resetCartHTML();
 		for(let camera of cart){
             document.querySelector(".cart-article").innerHTML += `<div class="row card-body card-body-cart px-0 pt-2 pb-1 border">
                                                                     <picture class="col px-0 text-center border-right">
@@ -107,6 +114,7 @@ function displayFormHTML() {
 };
 // Affichage de nombre d'articles dans le panier et appel de fonction d'affichage du formulaire
 function countCartArticles() {
+    resetCountHTML();
     displayFormHTML();
     document.querySelector(".article-count").innerHTML += `<h2 class="font-weight-bold nb-articles p-2 text-center"> Nombre d'articles : ${cart.length}</h2>`
 };
@@ -276,14 +284,14 @@ const validEmail = function(emailInput) {
   // La commande des articles
 
 // Ranger les id des articles commandés dans un liste pour envoie à l'API
-function CartProductId() {
+function cartProductId() {
     let products = [];
     cart.forEach(produit => {
         products.push(produit.cameraId);
     });
     return products;
 };
-const products = CartProductId();
+const products = cartProductId();
 // Pour ranger les données du client dans un objet comme demande l'API
 class ClientData {
     constructor(firstNameData, lastNameData, addressData, cityData, emailData) {
@@ -294,12 +302,11 @@ class ClientData {
         this.email = emailData;
     }
 };
-// L'objet de données du client recuperés de formulaire
+// L'objet de données du client recuperés du formulaire
 let contact = {};
 let clientName;
 // Récuperation de données saisies par le client
 function getFormData() {
-    //clientName = document.getElementById('firstName').value;
     let firstName = document.getElementById('firstName').value;
     let lastName = document.getElementById('lastName').value;
     let address = document.getElementById('address').value;
@@ -316,27 +323,32 @@ function getClientOrderId(jsonResponse) {
 };
 // Requête POST
 async function postAPI(dataToPost) {
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToPost),
-    };
-    const response = await fetch("http://localhost:3000/api/cameras/order", options);
-    const jsonResponse = await response.json(); // Récuperation de l'Id de la commande
-    if (response.ok) {
-        getClientOrderId(jsonResponse);
-        window.location.href = "confirmation.html";
+    try {
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataToPost),
+        };
+        const response = await fetch("http://localhost:3000/api/cameras/order", options);
+        const jsonResponse = await response.json(); // Récuperation de l'Id de la commande
+        if (response.ok) {
+            getClientOrderId(jsonResponse);
+            window.location.href = "confirmation.html";
+        }
+        else {
+            console.log("error");
+        }
     }
-    else {
-        console.log("error");
+    catch {
+        console.log("La requête POST a échoué");
     }
 };
 // Pour passer la commande et envoyer données du client et liste des articles commandés à l'API
 function makeOrder() {
     getFormData();
-    dataToPost = {contact, products};
+    let dataToPost = {contact, products};
     postAPI(dataToPost);
 };
 // Stockage du prix total et prénom du client dans Local Storage pour recupérer sur la page de confirmation
@@ -365,29 +377,3 @@ function confirmForm() {
     });
 };
 confirmForm(); // Appel de la function
-
-/*function setEventsListeners() {
-   
-    window.onload = function(){ // Fonctions exécutés dés le chargement de la page
-        // Le bouton de suppression
-        const removeArticleButtons = document.getElementsByClassName("btn-remove-article");
-        console.log("remove articles buttons ", removeArticleButtons);
-        // Boucle pour parcourir les boutons de chaque article
-        for(let i=0; i<removeArticleButtons.length; i++){ 
-            removeArticleButtons[i].addEventListener("click", function(e) {
-                e.preventDefault();
-                console.log("id article cliqué", e.target.dataset.idArticle); //enlever ça
-                
-                // Recupère No Id de caméra
-                const cameraId = e.target.dataset.idArticle;
-                removeCameraFromCart (cameraId);
-            });
-        }
-    }
-};*/
-
-
-/*function resetHTML() {
-    document.querySelector(".article-count").innerHTML = "";
-    document.querySelector(".cart-article").innerHTML = "";
-};*/

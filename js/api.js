@@ -4,11 +4,15 @@ class Camera{
         jsonCamera && Object.assign(this, jsonCamera);
     }
 };
+// Récupération de liste de caméras de l'API
+function getAllCameras() {
+    return fetch("http://localhost:3000/api/cameras")
+        .then(data => data.json())
+};
 // Aside
 function displayRecommendations() {
-    return fetch("http://localhost:3000/api/cameras")
-        .then( data => data.json())
-        .then( jsonCameras => {
+    getAllCameras()
+        .then(jsonCameras => {
             for(let jsonCamera of jsonCameras){
                 let camera = new Camera(jsonCamera);
                 document.querySelector(".reccomandation-container").innerHTML += `<div class="col-sm-7 col-md-5 col-lg-3 col-xl-2 card reccomandation-card m-2 m-lg-4">
@@ -20,4 +24,14 @@ function displayRecommendations() {
                                                                                 </div>`
         }
     })
+};
+// Menu toggle navigation
+function displayToggleContent() {
+	getAllCameras()
+	.then(jsonCameras => {
+		for(let jsonCamera of jsonCameras){
+			let camera = new Camera(jsonCamera);
+			document.querySelector(".nav-marques").innerHTML += `<a href="article.html?id=${camera._id}" class="dropdown-item m-1 m-lg-4 font-weight-bold" title="Caméras Zurss">${camera.name}</a>`;
+		}
+	})
 };
