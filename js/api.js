@@ -1,13 +1,20 @@
-// Représentation du format d'un article
-class Camera{
-    constructor(jsonCamera){
-        jsonCamera && Object.assign(this, jsonCamera);
+  // Les fonctions réutilisables
+
+// Récupération de liste de caméras de l'API
+async function getAllCameras() {
+    try {
+        return fetch("http://localhost:3000/api/cameras")
+            .then(data => data.json())
+    }
+    catch(e) {
+        console.log("Error :", e);
     }
 };
-// Récupération de liste de caméras de l'API
-function getAllCameras() {
-    return fetch("http://localhost:3000/api/cameras")
-        .then(data => data.json())
+// Représentation du format d'un article
+class Camera{
+    constructor(jsonCamera) {
+        jsonCamera && Object.assign(this, jsonCamera);
+    }
 };
 // Aside
 function displayRecommendations() {

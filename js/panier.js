@@ -1,12 +1,23 @@
+// Function de rechargement d'HTML vide
 function resetCartHTML() {
     document.querySelector(".cart-article").innerHTML = "";
-};
-function resetCountHTML() {
     document.querySelector(".article-count").innerHTML = "";
+    document.querySelector(".contact-validation").innerHTML = "";
+    document.querySelector("#btn-supprimer").innerHTML = "";
 };
+// Le bouton qui supprime tous les articles de Local Storage
+function deleteAllCart() {
+    let deleteButton = document.getElementById("btn-supprimer");
+    deleteButton.addEventListener("click", function(g) {
+        g.preventDefault();
+        localStorage.clear();
+        resetCartHTML();
+        displayEmptyCartMessage();
+    })
+};
+deleteAllCart();
 // Affichage de chaque article dans le panier
 function displayCartHTML(cart) {
-        resetCartHTML();
 		for(let camera of cart){
             document.querySelector(".cart-article").innerHTML += `<div class="row card-body card-body-cart px-0 pt-2 pb-1 border">
                                                                     <picture class="col px-0 text-center border-right">
@@ -21,17 +32,12 @@ function displayCartHTML(cart) {
                                                                                 <div class="input-group-prepend">
                                                                                     <label class="input-group-text" for="select-quantity">Quantité :</label>
                                                                                 </div>
-                                                                                <div class="row quantite-delete">
+                                                                                <div class="row quantite">
                                                                                     <select class="custom-select quantity-choise" id="select-quantity">
                                                                                         <option selected>1</option>
                                                                                         <option value="1">2</option>
                                                                                         <option value="2">3</option>
                                                                                     </select>
-                                                                                    <button type="button" class="btn bin btn-outline-secondary mx-1 btn-remove-article" data-id-article="${camera.cameraId}">
-                                                                                        <span>
-                                                                                            <i class="far fa-trash-alt"></i>
-                                                                                        </span>
-                                                                                    </button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -112,9 +118,13 @@ function displayFormHTML() {
                                                                     </div>
                                                                 </div>`;
 };
+function displayDeleteButton() { 
+    document.querySelector("#btn-supprimer").innerHTML += `<button type="button" class="btn bin btn-outline mx-1 btn-remove-article">
+                                                                    <span class="font-weight-bold">Supprimer les articles</span>
+                                                                </button>`;
+}
 // Affichage de nombre d'articles dans le panier et appel de fonction d'affichage du formulaire
 function countCartArticles() {
-    resetCountHTML();
     displayFormHTML();
     document.querySelector(".article-count").innerHTML += `<h2 class="font-weight-bold nb-articles p-2 text-center"> Nombre d'articles : ${cart.length}</h2>`
 };
@@ -129,6 +139,7 @@ const cart = JSON.parse(localStorage.getItem("cart"));
 if (cart != null) {
     displayCartHTML(cart);
     countCartArticles();
+    displayDeleteButton();
 }
 else if (cart == null) {
     displayEmptyCartMessage();

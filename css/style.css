@@ -113,19 +113,16 @@ body {
 
 /* Le bouton de suppresion des articles du panier */
 .bin {
-  border: 1px solid #f3eaf1;
+  border: 1px solid #9a61e1;
   color: #000000;
-}
-.bin i {
-  font-size: 1.2rem;
+  box-shadow: 2px 4px 10px #c599bb, 6px 40px 30px -30px #e8a247 inset;
 }
 .bin:hover, .bin:focus {
   border: 1px solid #cccccc;
-  background-color: unset;
-  box-shadow: 2px 2px 2px #666666;
-}
-.bin:hover i, .bin:focus i {
-  color: #9a61e1;
+  box-shadow: 4px 4px 10px #8d5180, 15px 40px 40px -27px #e8a247 inset;
+  /* Appliquation des ombres - externe et interne */
+  text-decoration: underline;
+  color: #000000;
 }
 
 .header-primary {
@@ -174,8 +171,10 @@ body {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.1);
 }
-.header-secondary i:hover {
-  text-shadow: 1px 1px 1px #4d4d4d;
+.header-secondary i:hover,
+.header-secondary i:focus {
+  color: #262626;
+  border-bottom: 2px solid #262626;
 }
 .header-secondary .titre-nav {
   display: flex;
@@ -293,7 +292,7 @@ body {
     top: 82px;
     right: 121px;
   }
-  .card-body-cart .option-container .text-card .options-quantity .quantite-delete {
+  .card-body-cart .option-container .text-card .options-quantity .quantite {
     flex-wrap: nowrap;
   }
 }

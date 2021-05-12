@@ -74,18 +74,14 @@
 }
 /* Le bouton de suppresion des articles du panier */
 .bin {
-	border: 1px solid $colour-background;
+	border: 1px solid $colour-primary;
 	color: $colour-black;
-	i {
-		font-size: 1.2rem;
-	}
+	@include btn-shadows;
 	&:hover,
 	&:focus {
 		border: 1px solid lighten($colour-black, 80%);
-		background-color: unset;
-		box-shadow: $box-shadow;
-		i {
-			color: $colour-primary;
-		}
+		@include btn-shadows-hover;
+		text-decoration: underline;
+		color: $colour-black;
 	}
 }
