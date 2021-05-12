@@ -91,7 +91,8 @@ function setEventsListeners(camera) {
     e.preventDefault();
     let articlesInLocalStorage = JSON.parse(localStorage.getItem("cart"));
     const cameraOptions = getCameraOptions(camera);
-    localStorage.setItem("cart", cameraOptions); // S'il y a déjà les articles dans Local Storage
+    localStorage.setItem("cart", cameraOptions); 
+    // S'il y a déjà les articles dans Local Storage
 
     if (articlesInLocalStorage) {
       articlesInLocalStorage.push(cameraOptions);

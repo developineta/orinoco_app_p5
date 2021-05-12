@@ -19,34 +19,35 @@ function deleteAllCart() {
 }
 
 ;
-deleteAllCart(); // Affichage de chaque article dans le panier
+deleteAllCart(); 
+// Affichage de chaque article dans le panier
 
 function displayCartHTML(cart) {
   for (let camera of cart) {
     document.querySelector(".cart-article").innerHTML += `<div class="row card-body card-body-cart px-0 pt-2 pb-1 border">
-                                                                    <picture class="col px-0 text-center border-right">
-                                                                        <img src="${camera.cameraImage}" class="card-img-left" id="img_panier" alt="Caméra vintage" title="Caméra vintage Orinoco" />
-                                                                    </picture>
-                                                                    <div class="col px-0 option-container">
-                                                                        <div class="col text-card">
-                                                                            <!-- Le nom et choix de lentille -->
-                                                                            <h2 class="card-title font-weight-bold">${camera.cameraName}</h2>
-                                                                            <h2 class="article-price font-weight-bold mt-2">${camera.cameraPrice} €</h2>
-                                                                            <div class="input-group options-quantity my-3">
-                                                                                <div class="input-group-prepend">
-                                                                                    <label class="input-group-text" for="select-quantity">Quantité :</label>
-                                                                                </div>
-                                                                                <div class="row quantite">
-                                                                                    <select class="custom-select quantity-choise" id="select-quantity">
-                                                                                        <option selected>1</option>
-                                                                                        <option value="1">2</option>
-                                                                                        <option value="2">3</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`;
+                                                              <picture class="col px-0 text-center border-right">
+                                                                  <img src="${camera.cameraImage}" class="card-img-left" id="img_panier" alt="Caméra vintage" title="Caméra vintage Orinoco" />
+                                                              </picture>
+                                                              <div class="col px-0 option-container">
+                                                                  <div class="col text-card">
+                                                                      <!-- Le nom et choix de lentille -->
+                                                                      <h2 class="card-title font-weight-bold">${camera.cameraName}</h2>
+                                                                      <h2 class="article-price font-weight-bold mt-2">${camera.cameraPrice} €</h2>
+                                                                      <div class="input-group options-quantity my-3">
+                                                                          <div class="input-group-prepend">
+                                                                              <label class="input-group-text" for="select-quantity">Quantité :</label>
+                                                                          </div>
+                                                                          <div class="row quantite">
+                                                                              <select class="custom-select quantity-choise" id="select-quantity">
+                                                                                  <option selected>1</option>
+                                                                                  <option value="1">2</option>
+                                                                                  <option value="2">3</option>
+                                                                              </select>
+                                                                          </div>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>`;
   }
 }
 
@@ -125,14 +126,15 @@ function displayFormHTML() {
                                                                 </div>`;
 }
 
-;
+; // Affichage de bouton de suppresion des articles dans le panier
 
 function displayDeleteButton() {
   document.querySelector("#btn-supprimer").innerHTML += `<button type="button" class="btn bin btn-outline mx-1 btn-remove-article">
                                                                     <span class="font-weight-bold">Supprimer les articles</span>
                                                                 </button>`;
-} // Affichage de nombre d'articles dans le panier et appel de fonction d'affichage du formulaire
+} 
 
+// Affichage de nombre d'articles dans le panier et appel de fonction d'affichage du formulaire
 
 function countCartArticles() {
   displayFormHTML();
@@ -143,7 +145,8 @@ function countCartArticles() {
 
 function displayEmptyCartMessage() {
   document.querySelector(".contenu-page").innerHTML += `<h2 class="message-panier-vide font-weight-bold text-center m-5">Votre panier est vide !</h2>
-                                                            <h3 class=" font-weight-bold text-center mx-0">Recommandations :</h3>`, displayRecommendations();
+                                                            <h3 class=" font-weight-bold text-center mx-0">Recommandations :</h3>`,
+  displayRecommendations();
 }
 
 ; // Récupération des données de Local Storage
@@ -161,18 +164,23 @@ if (cart != null) {
 ; // Calcul du prix total du panier
 
 function totalPrice(cart) {
-  let totalCart = 0;
+  try {
+    let totalCart = 0;
 
-  for (let camera of cart) {
-    let oneCameraPrice = camera.cameraPrice;
-    totalCart += parseFloat(oneCameraPrice);
+    for (let camera of cart) {
+      let oneCameraPrice = camera.cameraPrice;
+      totalCart += parseFloat(oneCameraPrice);
+    }
+
+    return totalCart;
+  } catch (e) {
+      console.log("Le panier est vide :", e);
   }
-
-  return totalCart;
 }
 
 ;
-const totalCart = totalPrice(cart); // Affichage de prix total du panier sur la page
+const totalCart = totalPrice(cart);
+// Affichage de prix total du panier sur la page
 
 document.getElementById("prix-total").innerHTML = totalCart.toFixed(2).replace(".", ",") + " €";
 
@@ -200,7 +208,8 @@ city.addEventListener("change", function () {
 });
 email.addEventListener("change", function () {
   validEmail(this);
-}); // Définitions de règles de validation de chaque champ du formulaire
+}); 
+// Définition de règles de validation de chaque champ du formulaire
 
 const validFirstName = function (firstNameInput) {
   let message;
@@ -310,9 +319,10 @@ const validEmail = function (emailInput) {
     smallText.innerHTML = "E-mail n'est pas valide";
     return false;
   }
-}; // La commande des articles
-// Ranger les id des articles commandés dans un liste pour envoie à l'API
+}; 
 
+//----------------------------- La commande des articles ----------------------------
+// Ranger les id des articles commandés dans un liste pour envoie à l'API
 
 function cartProductId() {
   let products = [];
@@ -323,7 +333,8 @@ function cartProductId() {
 }
 
 ;
-const products = cartProductId(); // Pour ranger les données du client dans un objet comme demande l'API
+const products = cartProductId(); 
+// Pour ranger les données du client dans un objet comme demande l'API
 
 class ClientData {
   constructor(firstNameData, lastNameData, addressData, cityData, emailData) {
@@ -339,7 +350,8 @@ class ClientData {
 ; // L'objet de données du client recuperés du formulaire
 
 let contact = {};
-let clientName; // Récuperation de données saisies par le client
+let clientName; 
+// Récuperation de données saisies par le client
 
 function getFormData() {
   let firstName = document.getElementById('firstName').value;

@@ -1,10 +1,10 @@
-// Aside et menu toggle
-displayRecommendations();
-displayToggleContent(); // Récuperation de données du local Storage
+// Récuperation de données du local Storage
 
 const totalPrice = JSON.parse(localStorage.getItem("totalConfirm"));
 const firstName = JSON.parse(localStorage.getItem("firstName"));
-const orderId = localStorage.getItem("orderConfirmationId"); // Le message de confirmation
+const orderId = localStorage.getItem("orderConfirmationId");
+
+// Le message de confirmation
 
 async function displayConfirmation() {
   try {
@@ -21,7 +21,8 @@ async function displayConfirmation() {
 }
 
 ;
-displayConfirmation(); // Vider le Local Storage
+displayConfirmation();
+// Vider le Local Storage
 
 function deleteStorage() {
   setTimeout(function () {
@@ -31,3 +32,8 @@ function deleteStorage() {
 
 ;
 deleteStorage();
+
+// Aside et menu toggle
+
+displayRecommendations();
+displayToggleContent(); 
