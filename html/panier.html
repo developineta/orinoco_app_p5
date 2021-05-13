@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+        <meta charset="utf-8">
+        <meta name=viewport content="width=device-width, initial-scale=1"> <!-- Ajout de Viewport pour adapter la taille du site à la taille d'écran -->
+		<title>Orinoco - Caméras photo vintage</title>
+        <!-- Ajout de lien pour utilisation de Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css" type = "text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Orelega+One&display=swap" rel="stylesheet"> <!-- Ajout de la police Google -->
+        <script src="https://kit.fontawesome.com/d034506d63.js" crossorigin="anonymous"></script> <!-- Ajout de lien vers la bibliothèque Font Awesome -->
+	</head>
+    <body>
+        <header class="my-2 border-bottom">
+            <nav class="row navbar navbar-expand header-secondary">
+                <a href="index.html" class=" col-2 text-center nav-item_arrow">
+                    <span title="Rétour à l'accueil">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                </a>
+                <div class="titre-nav col-8">
+                    <div class="titre-article">
+                        <h2 class="col-6 font-weight-bold">Panier</h2>
+                    </div>
+                    <div class="navabar-container">
+                        <nav class="navbar icones-nav p-0">
+                            <ul class="navbar-nav icones-nav_list col text-right p-0">
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <a href="panier.html" class="nav-item_cart">
+                                        <span title="Voir le panier">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <span title="Voir les favoris">
+                                        <i class="fas fa-heart"></i>
+                                    </span>
+                                </li>
+                                <li class="nav-item active m-3 m-lg-4">
+                                    <span title="Mon compte">
+                                        <i class="fas fa-user-circle"></i>
+                                    </span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <img src="../images/orinoco-logo_small.png" class="col navbar-brand small-logo p-0" alt="Orinoco logo - Caméras vintage" title="Orinoco - Caméras vintage" />
+            </nav>
+        </header>
+        <div class="contenu-page">
+            <section class="container col-lg-8 cart-container">
+                <div class="article-count mt-3"></div>
+                <div class="liste-cartes">
+                    <div class="card px-3 cart-article"></div>
+                </div>
+            </section>
+            <div class="text-center mt-2" id="btn-supprimer"></div>
+            <section class="container contact-validation mt-5"></section>
+        </div>
+        <div class="reccomandation-container row m-auto"></div>
+        <!-- jQuery en premier, après Popper.js et Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- Les chemins vers les fichiers JavaScript -->
+        <script src="../js/api.js"></script>
+        <script src="../js/panier.js"></script>
+    </body>
+</html>

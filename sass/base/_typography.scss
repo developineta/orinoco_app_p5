@@ -1,0 +1,25 @@
+body {
+	font-family: "Libre Baskerville", serif;
+	color: $colour-black;
+	h2 {
+		font-size: 1.5rem;
+	}
+	h3 {
+		font-size: 1.3rem;
+	}
+	p,
+	li {
+		font-size: 1.1rem;
+	}
+	a {
+		color: $colour-black;
+		text-decoration: none;
+		&:hover,
+		&:focus {
+			color: lighten($colour-black, 15%);
+		}
+	}
+	i {
+		font-size: 1.5rem;
+	}
+}

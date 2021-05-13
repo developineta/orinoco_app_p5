@@ -1,0 +1,109 @@
+.article-count {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+#img_panier {
+	max-width: 220px;
+	width: 100%;
+	box-shadow: $box-shadow;
+	@media all and (max-width: 494px) {
+		max-width: 140px;
+	}
+}
+.card-body-cart {
+	@media all and (max-width: 494px) {
+		height: 150px;
+		position: relative;
+	}
+	.option-container {
+		.text-card {
+			@media all and (min-width: 768px) {
+				padding-left: 60px;
+			}
+			@media all and (max-width: 768px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			@media all and (max-width: 494px) {
+				h2 {
+					font-size: 1.2rem;
+					text-align: center;
+				}
+			}
+			.options-quantity {
+				@media all and (max-width: 494px) {
+					display: flex;
+					justify-content: center;
+					position: absolute;
+					top: 82px;
+    				right: 121px;
+					.quantite {
+						flex-wrap: nowrap;
+					}
+				}
+			}
+		}
+	}
+}
+.formulaire {
+	input:required {
+		border: 1px solid lighten($colour-black, 40%);
+	}
+	input:required:invalid:focus {
+		border: 2px solid $colour-red;
+	}
+	input:valid:focus {
+		border: 1px solid $colour-green;
+	}
+	.form-control {
+		&:hover,
+		&:focus {
+			background-color: lighten($colour-black, 90%);
+			box-shadow: $box-shadow;
+		}
+	}
+	.validation {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		.total-price {
+			align-items: flex-end;
+			justify-content: center;
+			background-color: rgba(255, 255, 255, 0.1);
+			border-radius: 20px;
+			p {
+				font-size: 0.8rem;
+			}
+		}
+	}
+	.payment-methods {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		ul {
+			flex-wrap: nowrap;
+			background-color: $colour-background;
+			border-radius: 10px;
+			li {
+				padding: 10px 0 8px 0;
+				i {
+					font-size: 2.2rem;
+				}
+				.fa-cc-paypal {
+					color: #3b7bbf;
+				}
+				.fa-cc-visa {
+					color: #172274;
+				}
+				.fa-cc-mastercard {
+					color: #ff5f00;
+				}
+				.fa-cc-amex {
+					color: #2e77bb;
+				}
+			}
+		}
+	}
+}
