@@ -190,7 +190,7 @@ if (cart != null) {
         console.log(e);
     }
   }
-
+  ; displayTotalCart();
 
   //----------------------------- Passer la commande ----------------------------
   // Le formulaire
