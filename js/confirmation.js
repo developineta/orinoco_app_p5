@@ -6,6 +6,7 @@ const orderId = localStorage.getItem("orderConfirmationId");
 
 // Le message de confirmation
 
+
 async function displayConfirmation() {
   try {
     document.querySelector(".confirmation-message").innerHTML += `<h2 class="font-weight-bold">Merci ${firstName} pour voter achat !</h2>
@@ -14,15 +15,21 @@ async function displayConfirmation() {
                                                                         <p class="font-weight-bold">Votre No de commande : ${orderId}</p>
                                                                         <p class="font-weight-bold">À bientôt chez Orinoco !</p>`;
   } catch (e) {
-    document.querySelector(".confirmation-message").innerHTML += `<h2 class="font-weight-bold">L'erreur s'est produite</h2>
-                                                                        <p class="font-weight-bold">Veuillez nous excuser !</p>`;
-    console.log("Error :", e);
+    console.log(e);
   }
 }
-
 ;
-displayConfirmation();
-// Vider le Local Storage
+
+if (totalPrice != undefined && firstName != undefined && orderId != undefined) {
+  displayConfirmation();
+  deleteStorage();
+}
+else {
+  document.querySelector(".confirmation-message").innerHTML += `<h2 class="font-weight-bold">Votre commande est déjà prise en compte</h2>
+                                                                        <p class="font-weight-bold">Vous pouvez recommencer vos achats !</p>`;
+}
+
+; // Vider le Local Storage
 
 function deleteStorage() {
   setTimeout(function () {
@@ -30,10 +37,7 @@ function deleteStorage() {
   }, 2000);
 }
 
-;
-deleteStorage();
-
-// Aside et menu toggle
+; // Aside et menu toggle
 
 displayRecommendations();
 displayToggleContent(); 
