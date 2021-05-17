@@ -15,10 +15,10 @@ class Camera {
   constructor(jsonCamera) {
     jsonCamera && Object.assign(this, jsonCamera);
   }
-
 }
 
 ; // Aside
+
 
 function displayRecommendations() {
   getAllCameras().then(jsonCameras => {

@@ -378,7 +378,7 @@ if (cart != null) {
 
   function getClientOrderId(jsonResponse) {
     let clientOrderId = jsonResponse.orderId;
-    console.log(clientOrderId);
+    console.log("L'Id de la commande :", clientOrderId);
     localStorage.setItem("orderConfirmationId", clientOrderId); // Id de la commande savgardé dans Local Storage
   }
 
@@ -402,8 +402,8 @@ if (cart != null) {
       } else {
         console.log("error");
       }
-    } catch {
-      console.log("La requête POST a échoué");
+    } catch(e) {
+      console.log("La requête POST a échoué ", e);
     }
   }
 

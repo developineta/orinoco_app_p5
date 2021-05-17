@@ -8,8 +8,8 @@ function getCurrentCameraIdFromURL() {
 
 ; // La fonction qui vient d'être déclaré est répresenté dans son résultat - cameraId
 
-const cameraId = getCurrentCameraIdFromURL(); // Affichage des donnés d'un article avec fetch et la promesse
-
+const cameraId = getCurrentCameraIdFromURL(); 
+// Affichage des donnés d'un article avec fetch et la promesse
 async function getCameraById(cameraId) {
   try {
     return fetch("http://localhost:3000/api/cameras/" + cameraId).then(data => data.json());
